@@ -186,6 +186,11 @@ h3 {
   background: rgba(255, 255, 255, 0.72);
 }
 
+.button:focus-visible {
+  outline: 3px solid var(--color-warm-wood);
+  outline-offset: 3px;
+}
+
 .hero-card {
   display: grid;
   gap: 22px;

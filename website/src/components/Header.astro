@@ -1,0 +1,23 @@
+---
+const base = import.meta.env.BASE_URL;
+
+const navItems = [
+  { href: '#mission', label: 'Mission' },
+  { href: '#focus', label: 'Focus' },
+  { href: '#voice', label: 'Voice' },
+];
+---
+
+<header class="site-header" aria-label="Site header">
+  <a class="brand-mark" href={base} aria-label="M Brand home">
+    <span class="brand-icon" aria-hidden="true">M</span>
+    <span class="brand-name">M Brand</span>
+  </a>
+  <nav class="site-nav" aria-label="Primary navigation">
+    {
+      navItems.map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))
+    }
+  </nav>
+</header>
