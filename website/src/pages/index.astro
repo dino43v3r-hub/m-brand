@@ -1,0 +1,110 @@
+---
+import '../styles/global.css';
+import dinoImage from '../../../assets/canonical/dino/Dino_Master_v1.0.png';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="The M Brand explores artificial intelligence, technology, leadership, theology, and lifelong learning with curiosity, humility, and intellectual honesty."
+    />
+    <title>M Brand</title>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header" aria-label="Site header">
+        <a class="brand-mark" href={base} aria-label="M Brand home">
+          <span class="brand-icon" aria-hidden="true">M</span>
+          <span class="brand-name">M Brand</span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="#mission">Mission</a>
+          <a href="#focus">Focus</a>
+          <a href="#voice">Voice</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">Curiosity. Clarity. Responsible innovation.</p>
+            <h1 id="page-title">Thoughtful exploration at the intersection of AI, technology, leadership, and theology.</h1>
+            <p class="lead">
+              The M Brand exists to encourage better questions, clearer reasoning, and trustworthy conversations about how technology can serve people with humility.
+            </p>
+            <div class="hero-actions" aria-label="Page sections">
+              <a class="button primary" href="#mission">Read the mission</a>
+              <a class="button secondary" href="#focus">Explore the focus</a>
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-label="Dino, the M Brand companion">
+            <img
+              src={dinoImage.src}
+              width={dinoImage.width}
+              height={dinoImage.height}
+              alt="Dino, the M Brand companion, sitting thoughtfully at a laptop."
+              loading="eager"
+              decoding="async"
+            />
+            <p class="caption">
+              Dino supports the conversation as a visual companion for curiosity, humility, and lifelong learning.
+            </p>
+          </aside>
+        </section>
+
+        <section class="section" id="mission" aria-labelledby="mission-heading">
+          <div class="statement">
+            <h2 id="mission-heading">Mission</h2>
+            <p>
+              To thoughtfully explore how artificial intelligence can become more trustworthy, transparent, and useful while strengthening human reasoning, encouraging intellectual honesty, and serving people through responsible innovation.
+            </p>
+          </div>
+        </section>
+
+        <section class="section" id="focus" aria-labelledby="focus-heading">
+          <h2 id="focus-heading">Areas of Focus</h2>
+          <div class="focus-grid">
+            <article class="panel">
+              <h3>Responsible AI</h3>
+              <p>Exploring transparency, governance, trust, and technology that strengthens rather than replaces human reasoning.</p>
+            </article>
+            <article class="panel">
+              <h3>Leadership and Learning</h3>
+              <p>Encouraging clear thinking, intellectual honesty, and lifelong learning across technical and organizational work.</p>
+            </article>
+            <article class="panel">
+              <h3>Theology and Ethics</h3>
+              <p>Inviting thoughtful conversations about truth, humility, philosophy, and the human questions surrounding technology.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="voice" aria-labelledby="voice-heading">
+          <h2 id="voice-heading">How the Brand Speaks</h2>
+          <div class="intro-grid">
+            <article class="panel">
+              <h3>Curious and honest</h3>
+              <p>The voice favors questions, reflection, and transparency over certainty for its own sake.</p>
+            </article>
+            <article class="panel">
+              <h3>Warm and professional</h3>
+              <p>The design and writing stay calm, clear, approachable, and respectful of the reader's time.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>&copy; 2026 M Brand.</p>
+        <p>Built for thoughtful exploration.</p>
+      </footer>
+    </div>
+  </body>
+</html>
