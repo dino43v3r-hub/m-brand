@@ -115,8 +115,8 @@ a {
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 32px;
-  padding: 56px 0 46px;
+  gap: clamp(34px, 7vw, 76px);
+  padding: clamp(64px, 9vw, 104px) 0 clamp(54px, 7vw, 76px);
 }
 
 .page-hero {
@@ -162,7 +162,7 @@ a {
 }
 
 .hero-copy {
-  max-width: 760px;
+  max-width: 720px;
 }
 
 .eyebrow {
@@ -191,8 +191,8 @@ h1 {
 }
 
 .hero h1 {
-  font-size: clamp(1.75rem, 5.8vw, 3.65rem);
-  line-height: 0.98;
+  font-size: clamp(1.9rem, 5.6vw, 3.7rem);
+  line-height: 1.02;
 }
 
 h2 {
@@ -248,26 +248,40 @@ h3 {
 }
 
 .hero-card {
+  position: relative;
+  isolation: isolate;
   display: grid;
-  gap: 22px;
+  gap: 18px;
   align-content: center;
-  border: 1px solid rgba(217, 222, 227, 0.9);
+  justify-items: center;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.74);
-  box-shadow: var(--shadow-soft);
-  padding: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.22)),
+    rgba(170, 185, 200, 0.08);
+  padding: clamp(18px, 4vw, 34px);
+}
+
+.hero-card::before {
+  position: absolute;
+  inset: 12%;
+  z-index: -1;
+  border-radius: 8px;
+  background: rgba(110, 143, 175, 0.1);
+  content: "";
 }
 
 .hero-card img {
-  width: min(100%, 420px);
+  width: min(100%, 440px);
   justify-self: center;
   border-radius: 8px;
 }
 
 .caption {
+  max-width: 34rem;
   margin: 0;
   color: rgba(54, 69, 79, 0.72);
   font-size: 0.95rem;
+  text-align: center;
 }
 
 .section {
@@ -523,9 +537,12 @@ h3 {
 
 @media (min-width: 760px) {
   .hero {
-    grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+    grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
     align-items: center;
-    padding-top: 66px;
+  }
+
+  .hero-card {
+    min-height: 100%;
   }
 
   .page-hero.with-companion,

@@ -29,7 +29,24 @@ const {
   secondaryAction,
 } = Astro.props;
 
-const imageSrc = typeof image === 'string' ? image : image.src;
+const withBasePath = (path: string) => {
+  const isExternal = /^(?:[a-z][a-z\d+.-]*:)?\/\//i.test(path);
+
+  if (isExternal || path.startsWith('data:') || path.startsWith('#')) {
+    return path;
+  }
+
+  const base = import.meta.env.BASE_URL;
+  const normalizedBase = base.endsWith('/') ? base : `${base}/`;
+
+  if (path.startsWith(normalizedBase)) {
+    return path;
+  }
+
+  return `${normalizedBase}${path.replace(/^\/+/, '')}`;
+};
+
+const imageSrc = typeof image === 'string' ? withBasePath(image) : image.src;
 const imageWidth = typeof image === 'string' ? undefined : image.width;
 const imageHeight = typeof image === 'string' ? undefined : image.height;
 ---
