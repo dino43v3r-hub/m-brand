@@ -1,4 +1,28 @@
+---
+const base = import.meta.env.BASE_URL;
+const basePath = base.endsWith('/') ? base.slice(0, -1) : base;
+const withBase = (path: string) => `${basePath}${path === '/' ? '/' : path}`;
+
+const footerLinks = [
+  { href: '/about', label: 'About' },
+  { href: '/connectaloud', label: 'ConnectAloud' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/resources', label: 'Resources' },
+  { href: '/speaking', label: 'Speaking' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
 <footer class="site-footer">
-  <p>&copy; 2026 M Brand.</p>
-  <p>Built for thoughtful exploration.</p>
+  <div class="footer-statement">
+    <p class="footer-brand">&copy; 2026 M Brand.</p>
+    <p>Thoughtful exploration of AI, technology, leadership, theology, and lifelong learning.</p>
+  </div>
+  <nav class="footer-nav" aria-label="Footer navigation">
+    {
+      footerLinks.map((link) => (
+        <a href={withBase(link.href)}>{link.label}</a>
+      ))
+    }
+  </nav>
 </footer>

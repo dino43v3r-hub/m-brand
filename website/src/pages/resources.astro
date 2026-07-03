@@ -1,0 +1,40 @@
+---
+import Card from '../components/Card.astro';
+import Section from '../components/Section.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageDescription =
+  'M Brand resources for thoughtful exploration of AI, technology, leadership, theology, ethics, and learning.';
+---
+
+<BaseLayout title="Resources | M Brand" description={pageDescription}>
+  <section class="page-hero" aria-labelledby="page-title">
+    <p class="eyebrow">Resources</p>
+    <h1 id="page-title">Materials for learning carefully and thinking clearly.</h1>
+    <p class="lead">
+      This space is prepared for guides, notes, references, and educational material that support the M Brand mission.
+    </p>
+  </section>
+
+  <Section id="resource-standards" title="Resource Standards">
+    <div class="statement">
+      <p>
+        Resources should be useful, clear, intellectually honest, and worth returning to after the first reading.
+      </p>
+    </div>
+  </Section>
+
+  <Section id="resource-types" title="Future Resource Types">
+    <div class="focus-grid">
+      <Card title="Guides">
+        <p>Accessible explanations that help readers approach complex topics with confidence and humility.</p>
+      </Card>
+      <Card title="Research notes">
+        <p>Transparent learning records that document sources, reasoning, uncertainty, and next questions.</p>
+      </Card>
+      <Card title="Teaching material">
+        <p>Reusable resources for conversations, presentations, workshops, and learning communities.</p>
+      </Card>
+    </div>
+  </Section>
+</BaseLayout>

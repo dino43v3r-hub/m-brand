@@ -1,0 +1,42 @@
+---
+import Card from '../components/Card.astro';
+import Section from '../components/Section.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageDescription =
+  'ConnectAloud is an M Brand space for clear, reflective conversations about technology, leadership, learning, and responsible innovation.';
+---
+
+<BaseLayout title="ConnectAloud | M Brand" description={pageDescription}>
+  <section class="page-hero" aria-labelledby="page-title">
+    <p class="eyebrow">ConnectAloud</p>
+    <h1 id="page-title">Conversations that make room for thoughtfulness.</h1>
+    <p class="lead">
+      ConnectAloud is reserved for spoken reflection, interviews, and conversations that help complex ideas become easier to approach.
+    </p>
+  </section>
+
+  <Section id="purpose" title="Purpose">
+    <div class="framework-panel">
+      <p class="eyebrow">Prepared for future conversations</p>
+      <h3>A home for meaningful dialogue as the work develops.</h3>
+      <p>
+        Future ConnectAloud content should invite careful listening, clear thinking, and respectful conversation across AI, technology, leadership, theology, and learning.
+      </p>
+    </div>
+  </Section>
+
+  <Section id="formats" title="Possible Formats">
+    <div class="focus-grid">
+      <Card title="Reflective episodes">
+        <p>Short-form explorations of a question, idea, or discovery worth thinking through aloud.</p>
+      </Card>
+      <Card title="Interviews">
+        <p>Conversations with people who bring thoughtful experience to technology, ethics, leadership, or faith.</p>
+      </Card>
+      <Card title="Learning notes">
+        <p>Audio or video reflections that document what is being learned, tested, or reconsidered.</p>
+      </Card>
+    </div>
+  </Section>
+</BaseLayout>

@@ -1,0 +1,19 @@
+---
+import Button from '../components/Button.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageDescription = 'The requested M Brand page could not be found.';
+---
+
+<BaseLayout title="Page Not Found | M Brand" description={pageDescription}>
+  <section class="page-hero not-found" aria-labelledby="page-title">
+    <p class="eyebrow">Page not found</p>
+    <h1 id="page-title">This page is not here yet.</h1>
+    <p class="lead">
+      The idea may still be developing, the address may have changed, or the page may be waiting for a clearer reason to exist.
+    </p>
+    <div class="hero-actions">
+      <Button href="/">Return home</Button>
+    </div>
+  </section>
+</BaseLayout>

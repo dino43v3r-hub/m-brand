@@ -1,0 +1,42 @@
+---
+import Card from '../components/Card.astro';
+import Section from '../components/Section.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageDescription =
+  'Explore M Brand project areas focused on responsible AI, knowledge work, leadership, learning, and human-centered technology.';
+---
+
+<BaseLayout title="Projects | M Brand" description={pageDescription}>
+  <section class="page-hero" aria-labelledby="page-title">
+    <p class="eyebrow">Projects</p>
+    <h1 id="page-title">Practical work shaped by thoughtful principles.</h1>
+    <p class="lead">
+      Project work will appear here when there is something real to share, with an emphasis on usefulness, transparency, and responsible innovation.
+    </p>
+  </section>
+
+  <Section id="project-framework" title="Project Framework">
+    <div class="framework-panel">
+      <p class="eyebrow">Prepared for future projects</p>
+      <h3>Projects should help people think, decide, learn, or build with more clarity.</h3>
+      <p>
+        The M Brand project space is intentionally quiet until work is ready. The standard is not activity for its own sake, but meaningful contribution.
+      </p>
+    </div>
+  </Section>
+
+  <Section id="project-areas" title="Areas of Interest">
+    <div class="focus-grid">
+      <Card title="Responsible AI">
+        <p>Experiments and resources that make AI systems more trustworthy, transparent, and useful.</p>
+      </Card>
+      <Card title="Knowledge engineering">
+        <p>Work that improves how information is structured, evaluated, connected, and used.</p>
+      </Card>
+      <Card title="Learning tools">
+        <p>Practical supports for better reasoning, reflection, and lifelong learning.</p>
+      </Card>
+    </div>
+  </Section>
+</BaseLayout>

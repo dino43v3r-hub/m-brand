@@ -1,0 +1,42 @@
+---
+import Card from '../components/Card.astro';
+import Section from '../components/Section.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageDescription =
+  'Speaking topics from M Brand across responsible AI, technology leadership, ethics, theology, and lifelong learning.';
+---
+
+<BaseLayout title="Speaking | M Brand" description={pageDescription}>
+  <section class="page-hero" aria-labelledby="page-title">
+    <p class="eyebrow">Speaking</p>
+    <h1 id="page-title">Clear, grounded talks for thoughtful audiences.</h1>
+    <p class="lead">
+      Speaking work centers on helping people explore technology, leadership, and truth with curiosity, honesty, and practical care.
+    </p>
+  </section>
+
+  <Section id="topics" title="Topic Areas">
+    <div class="focus-grid">
+      <Card title="Responsible AI">
+        <p>Trust, transparency, governance, and practical ways to think clearly about artificial intelligence.</p>
+      </Card>
+      <Card title="Technology leadership">
+        <p>Decision making, learning culture, and the human responsibilities that come with technical systems.</p>
+      </Card>
+      <Card title="Theology and ethics">
+        <p>Thoughtful exploration of truth, humility, wisdom, and human responsibility in a technological age.</p>
+      </Card>
+    </div>
+  </Section>
+
+  <Section id="approach" title="Speaking Approach">
+    <div class="framework-panel">
+      <p class="eyebrow">Warm, clear, and practical</p>
+      <h3>The goal is not to overwhelm an audience. The goal is to help them think.</h3>
+      <p>
+        Talks should be shaped around careful questions, useful frameworks, and honest reflection rather than hype or fear.
+      </p>
+    </div>
+  </Section>
+</BaseLayout>

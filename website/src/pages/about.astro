@@ -1,0 +1,40 @@
+---
+import Card from '../components/Card.astro';
+import Section from '../components/Section.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageDescription =
+  'Learn about the mission and voice of M Brand, a thoughtful home for exploring AI, technology, leadership, theology, and lifelong learning.';
+---
+
+<BaseLayout title="About | M Brand" description={pageDescription}>
+  <section class="page-hero" aria-labelledby="page-title">
+    <p class="eyebrow">About M Brand</p>
+    <h1 id="page-title">A place for better questions, careful reasoning, and responsible curiosity.</h1>
+    <p class="lead">
+      M Brand exists to encourage thoughtful conversations about technology and truth without rushing people toward easy certainty.
+    </p>
+  </section>
+
+  <Section id="mission" title="Mission">
+    <div class="statement">
+      <p>
+        To thoughtfully explore how artificial intelligence can become more trustworthy, transparent, and useful while strengthening human reasoning, encouraging intellectual honesty, and serving people through responsible innovation.
+      </p>
+    </div>
+  </Section>
+
+  <Section id="focus" title="What Guides the Work">
+    <div class="focus-grid">
+      <Card title="Curiosity">
+        <p>Questions are treated as a beginning, not a weakness. The work makes room for learning in public with care.</p>
+      </Card>
+      <Card title="Trust">
+        <p>Trust grows through transparent reasoning, honest limits, and a willingness to revisit what still needs more thought.</p>
+      </Card>
+      <Card title="Service">
+        <p>Technology is explored through the lens of people, judgment, responsibility, and the common good.</p>
+      </Card>
+    </div>
+  </Section>
+</BaseLayout>

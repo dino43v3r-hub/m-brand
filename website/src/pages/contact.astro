@@ -1,0 +1,27 @@
+---
+import Section from '../components/Section.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageDescription =
+  'Contact M Brand for thoughtful conversations, speaking, projects, resources, and future collaboration.';
+---
+
+<BaseLayout title="Contact | M Brand" description={pageDescription}>
+  <section class="page-hero" aria-labelledby="page-title">
+    <p class="eyebrow">Contact</p>
+    <h1 id="page-title">Start with a thoughtful note.</h1>
+    <p class="lead">
+      This page is prepared for future contact options as the M Brand public presence develops.
+    </p>
+  </section>
+
+  <Section id="contact-framework" title="Conversation Framework">
+    <div class="framework-panel">
+      <p class="eyebrow">Prepared for future connection</p>
+      <h3>Good conversations begin with clarity about the question being explored.</h3>
+      <p>
+        Future contact paths should support speaking invitations, collaboration, project conversations, and thoughtful questions related to AI, technology, leadership, theology, and learning.
+      </p>
+    </div>
+  </Section>
+</BaseLayout>
