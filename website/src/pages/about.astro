@@ -4,37 +4,94 @@ import Section from '../components/Section.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const pageDescription =
-  'Learn about ConnectAloud, a thoughtful publication exploring AI, technology, leadership, theology, and lifelong learning.';
+  'Learn why ConnectAloud exists as a thoughtful publication exploring AI, technology, leadership, theology, and lifelong learning.';
 ---
 
 <BaseLayout title="About | ConnectAloud" description={pageDescription}>
   <section class="page-hero" aria-labelledby="page-title">
-    <p class="eyebrow">About ConnectAloud</p>
-    <h1 id="page-title">A place for better questions, careful reasoning, and responsible curiosity.</h1>
+    <p class="eyebrow">About</p>
+    <h1 id="page-title">About ConnectAloud</h1>
     <p class="lead">
-      ConnectAloud exists to encourage thoughtful conversations about technology and truth without rushing people toward easy certainty.
+      ConnectAloud exists to encourage thoughtful conversations about artificial intelligence, technology, leadership, theology, and lifelong learning without rushing people toward easy certainty.
     </p>
   </section>
 
-  <Section id="mission" title="Mission">
-    <div class="statement">
+  <Section id="why-connectaloud-exists" title="Why ConnectAloud Exists">
+    <div class="framework-panel">
+      <p class="eyebrow">Thoughtful conversations matter</p>
+      <h3>Technology is changing how people learn, work, communicate, and make decisions.</h3>
       <p>
-        To thoughtfully explore how artificial intelligence can become more trustworthy, transparent, and useful while strengthening human reasoning, encouraging intellectual honesty, and serving people through responsible innovation.
+        ConnectAloud exists because that kind of change deserves more than quick reactions or confident predictions.
+      </p>
+      <p>
+        The goal is not simply to provide answers. It is to encourage better questions, clearer reasoning, and intellectual honesty as people try to understand what technology is becoming and how it should serve human life.
       </p>
     </div>
   </Section>
 
-  <Section id="focus" title="What Guides the Work">
+  <Section id="what-youll-find-here" title="What You'll Find Here">
+    <p class="section-intro">
+      ConnectAloud brings several conversations into the same room because they are already connected in real life.
+    </p>
     <div class="focus-grid">
-      <Card title="Curiosity">
-        <p>Questions are treated as a beginning, not a weakness. The work makes room for learning in public with care.</p>
+      <Card title="Artificial Intelligence">
+        <p>Careful exploration of AI, responsible AI, trust, transparency, and the ways these systems shape human reasoning.</p>
       </Card>
-      <Card title="Trust">
-        <p>Trust grows through transparent reasoning, honest limits, and a willingness to revisit what still needs more thought.</p>
+      <Card title="Technology and Leadership">
+        <p>Reflections on information technology, decision making, organizational responsibility, and the work of leading with clarity.</p>
       </Card>
-      <Card title="Service">
-        <p>Technology is explored through the lens of people, judgment, responsibility, and the common good.</p>
+      <Card title="Theology and Ethics">
+        <p>Questions about truth, humility, responsibility, wisdom, and what it means to use powerful tools well.</p>
+      </Card>
+      <Card title="Research and Learning">
+        <p>Notes, resources, and reflections that treat learning as a lifelong practice rather than a finished position.</p>
       </Card>
     </div>
+  </Section>
+
+  <Section id="the-philosophy" title="The Philosophy">
+    <div class="statement">
+      <p>
+        ConnectAloud values curiosity over certainty, transparency over performance, and careful reasoning over quick answers.
+      </p>
+    </div>
+    <p class="section-intro">
+      This publication is shaped by intellectual humility. It assumes that important ideas deserve patience, that trust is built through honesty, and that learning is never complete.
+    </p>
+    <div class="principles-grid">
+      <Card title="Intellectual humility">
+        <p>Not every question can be answered quickly. Some ideas need room to develop before they become useful.</p>
+      </Card>
+      <Card title="Transparent reasoning">
+        <p>Good conversations name uncertainty, show how conclusions are formed, and remain open to correction.</p>
+      </Card>
+      <Card title="Lifelong learning">
+        <p>ConnectAloud treats discovery as an ongoing practice, not a destination that can be reached once and kept.</p>
+      </Card>
+    </div>
+  </Section>
+
+  <Section id="about-m" title="About M">
+    <div class="framework-panel">
+      <p class="eyebrow">A personal note</p>
+      <h3>M enjoys exploring ideas where AI, technology, leadership, and theology meet.</h3>
+      <p>
+        This is not meant to be a resume page. ConnectAloud grows out of curiosity, reflection, and a desire to think carefully about the questions technology is placing in front of people.
+      </p>
+      <p>
+        M is interested in the kind of learning that happens through honest conversation: noticing patterns, asking better questions, testing assumptions, and staying open to what still needs to be understood.
+      </p>
+    </div>
+  </Section>
+
+  <Section id="an-invitation" title="An Invitation">
+    <div class="statement">
+      <p>
+        If these questions matter to you too, you are invited to read, reflect, and continue the conversation.
+      </p>
+    </div>
+    <p class="section-intro">
+      You can explore the articles, follow future projects, use the resources as they develop, or visit the Connect page when you want to think through a question together.
+    </p>
   </Section>
 </BaseLayout>
