@@ -9,7 +9,7 @@ const currentPath = pathWithoutBase.replace(/\/$/, '') || '/';
 const navItems = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
-  { href: '/connectaloud', label: 'ConnectAloud' },
+  { href: '/connectaloud', label: 'Articles' },
   { href: '/projects', label: 'Projects' },
   { href: '/resources', label: 'Resources' },
   { href: '/speaking', label: 'Speaking' },
@@ -29,9 +29,9 @@ const isActive = (href: string) => {
 ---
 
 <header class="site-header" aria-label="Site header">
-  <a class="brand-mark" href={withBase('/')} aria-label="M Brand home">
-    <span class="brand-icon" aria-hidden="true">M</span>
-    <span class="brand-name">M Brand</span>
+  <a class="brand-mark" href={withBase('/')} aria-label="ConnectAloud home">
+    <span class="brand-icon" aria-hidden="true">C</span>
+    <span class="brand-name">ConnectAloud</span>
   </a>
   <nav class="site-nav" aria-label="Primary navigation">
     {

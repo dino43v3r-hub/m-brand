@@ -5,7 +5,7 @@ const withBase = (path: string) => `${basePath}${path === '/' ? '/' : path}`;
 
 const footerLinks = [
   { href: '/about', label: 'About' },
-  { href: '/connectaloud', label: 'ConnectAloud' },
+  { href: '/connectaloud', label: 'Articles' },
   { href: '/projects', label: 'Projects' },
   { href: '/resources', label: 'Resources' },
   { href: '/speaking', label: 'Speaking' },
@@ -15,8 +15,9 @@ const footerLinks = [
 
 <footer class="site-footer">
   <div class="footer-statement">
-    <p class="footer-brand">&copy; 2026 M Brand.</p>
-    <p>Thoughtful exploration of AI, technology, leadership, theology, and lifelong learning.</p>
+    <p class="footer-brand">&copy; 2026 ConnectAloud.</p>
+    <p>A thoughtful publication exploring AI, technology, leadership, theology, and lifelong learning.</p>
+    <p class="footer-attribution">Created by M.</p>
   </div>
   <nav class="footer-nav" aria-label="Footer navigation">
     {

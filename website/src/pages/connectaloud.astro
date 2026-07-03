@@ -6,7 +6,7 @@ import { getReadingTime } from '../lib/articles';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const pageDescription =
-  'ConnectAloud is an M Brand space for clear, reflective conversations about technology, leadership, learning, and responsible innovation.';
+  'Articles from ConnectAloud offer clear, reflective exploration of technology, leadership, learning, and responsible innovation.';
 
 const articles = (await getCollection('connectaloud')).sort((a, b) => {
   if (a.data.featured !== b.data.featured) {
@@ -30,12 +30,12 @@ const formatDate = (date: Date) =>
 const getArticleSlug = (id: string) => id.replace(/\.md$/, '');
 ---
 
-<BaseLayout title="ConnectAloud | M Brand" description={pageDescription}>
+<BaseLayout title="Articles | ConnectAloud" description={pageDescription}>
   <section class="page-hero" aria-labelledby="page-title">
-    <p class="eyebrow">ConnectAloud</p>
-    <h1 id="page-title">Conversations that make room for thoughtfulness.</h1>
+    <p class="eyebrow">Articles</p>
+    <h1 id="page-title">Writing that makes room for thoughtfulness.</h1>
     <p class="lead">
-      ConnectAloud is reserved for spoken reflection, interviews, and conversations that help complex ideas become easier to approach.
+      ConnectAloud publishes reflections and conversations that help complex ideas become easier to approach.
     </p>
   </section>
 
@@ -44,7 +44,7 @@ const getArticleSlug = (id: string) => id.replace(/\.md$/, '');
       <p class="eyebrow">Prepared for future conversations</p>
       <h3>A home for meaningful dialogue as the work develops.</h3>
       <p>
-        Future ConnectAloud content should invite careful listening, clear thinking, and respectful conversation across AI, technology, leadership, theology, and learning.
+        ConnectAloud content should invite careful listening, clear thinking, and respectful conversation across AI, technology, leadership, theology, and learning.
       </p>
     </div>
   </Section>

@@ -464,6 +464,12 @@ h3 {
   font-weight: 750;
 }
 
+.footer-attribution {
+  margin-top: 10px;
+  color: rgba(54, 69, 79, 0.54);
+  font-size: 0.88rem;
+}
+
 .footer-nav {
   display: flex;
   flex-wrap: wrap;
