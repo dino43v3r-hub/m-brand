@@ -4,37 +4,103 @@ import Section from '../components/Section.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const pageDescription =
-  'ConnectAloud resources for thoughtful exploration of AI, technology, leadership, theology, ethics, and learning.';
+  'A curated ConnectAloud learning library for books, research, AI resources, leadership, theology, tools, and future recommendations.';
 ---
 
 <BaseLayout title="Resources | ConnectAloud" description={pageDescription}>
   <section class="page-hero" aria-labelledby="page-title">
     <p class="eyebrow">Resources</p>
-    <h1 id="page-title">Materials for learning carefully and thinking clearly.</h1>
+    <h1 id="page-title">A curated library for learning carefully and thinking clearly.</h1>
     <p class="lead">
-      This space is prepared for guides, notes, references, and educational material that support the ConnectAloud mission.
+      ConnectAloud values lifelong learning. This page gathers resources that have contributed to understanding, raised better questions, or helped make complex ideas easier to approach.
     </p>
   </section>
 
-  <Section id="resource-standards" title="Resource Standards">
+  <Section id="library-philosophy" title="Library Philosophy">
     <div class="statement">
       <p>
-        Resources should be useful, clear, intellectually honest, and worth returning to after the first reading.
+        This is not meant to become a pile of links. A resource belongs here when it helps deepen understanding, clarify a question, or support thoughtful conversation.
       </p>
     </div>
   </Section>
 
-  <Section id="resource-types" title="Future Resource Types">
+  <Section id="books" title="Books">
     <div class="focus-grid">
-      <Card title="Guides">
-        <p>Accessible explanations that help readers approach complex topics with confidence and humility.</p>
+      <Card title="Foundational reading">
+        <p>Books that shape the long conversation around technology, reasoning, ethics, leadership, and the pursuit of truth.</p>
       </Card>
-      <Card title="Research notes">
-        <p>Transparent learning records that document sources, reasoning, uncertainty, and next questions.</p>
+      <Card title="Books worth revisiting">
+        <p>Some books are useful because they answer a question. Others are useful because they keep asking better ones.</p>
       </Card>
-      <Card title="Teaching material">
-        <p>Reusable resources for conversations, presentations, workshops, and learning communities.</p>
+      <Card title="Future notes">
+        <p>As specific recommendations are added, this section will include short notes about why each book matters.</p>
       </Card>
+    </div>
+  </Section>
+
+  <Section id="research-papers" title="Research Papers">
+    <div class="framework-panel">
+      <p class="eyebrow">Evidence and inquiry</p>
+      <h3>Research papers help slow the conversation down in a good way.</h3>
+      <p>
+        This section will collect papers that support careful thinking about artificial intelligence, human reasoning, governance, learning, and related fields. The goal is not to overwhelm readers with citations, but to preserve sources that are worth returning to.
+      </p>
+    </div>
+  </Section>
+
+  <Section id="ai-resources" title="AI Resources">
+    <div class="focus-grid">
+      <Card title="Responsible AI">
+        <p>Frameworks and references that help people think about trust, transparency, governance, and human responsibility.</p>
+      </Card>
+      <Card title="Practical understanding">
+        <p>Resources that explain AI systems clearly enough for thoughtful use without requiring everyone to become a specialist.</p>
+      </Card>
+      <Card title="Open questions">
+        <p>Materials that name uncertainty honestly and help readers keep learning as the technology continues to change.</p>
+      </Card>
+    </div>
+  </Section>
+
+  <Section id="leadership" title="Leadership">
+    <div class="framework-panel">
+      <p class="eyebrow">Judgment and responsibility</p>
+      <h3>Leadership resources should help people make better decisions, not just faster ones.</h3>
+      <p>
+        Future recommendations may include material on decision making, organizational learning, trust, communication, and the human responsibilities that come with technical systems.
+      </p>
+    </div>
+  </Section>
+
+  <Section id="theology" title="Theology">
+    <div class="statement">
+      <p>
+        Theology belongs in this conversation because technology raises questions about truth, wisdom, human responsibility, and what it means to serve people well.
+      </p>
+    </div>
+  </Section>
+
+  <Section id="tools" title="Tools">
+    <div class="focus-grid">
+      <Card title="Thinking tools">
+        <p>Prompts, frameworks, and practices that support clearer questions, better notes, and more careful reasoning.</p>
+      </Card>
+      <Card title="Learning tools">
+        <p>Resources that help organize research, compare ideas, and continue learning without turning the process into noise.</p>
+      </Card>
+      <Card title="Creation tools">
+        <p>Practical tools may be added when they support thoughtful communication rather than becoming the center of attention.</p>
+      </Card>
+    </div>
+  </Section>
+
+  <Section id="future-recommendations" title="Future Recommendations">
+    <div class="framework-panel">
+      <p class="eyebrow">Growing with care</p>
+      <h3>This library will grow slowly on purpose.</h3>
+      <p>
+        Future recommendations will be added when they have clearly contributed to understanding. The standard is usefulness, intellectual honesty, and long-term value rather than novelty.
+      </p>
     </div>
   </Section>
 </BaseLayout>
