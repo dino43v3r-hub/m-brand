@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { getReadingTime } from '../../lib/articles';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
@@ -13,6 +14,7 @@ export async function getStaticPaths() {
 
 const { article } = Astro.props;
 const { Content } = await render(article);
+const readingTime = getReadingTime(article.body);
 const articleDate = article.data.date.toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
@@ -36,7 +38,18 @@ const articleDate = article.data.date.toLocaleDateString('en-US', {
           <dt>Category</dt>
           <dd>{article.data.category}</dd>
         </div>
+        <div>
+          <dt>Reading Time</dt>
+          <dd>{readingTime}</dd>
+        </div>
       </dl>
+      <ul class="tag-list article-tags" aria-label="Article tags">
+        {
+          article.data.tags.map((tag) => (
+            <li>{tag}</li>
+          ))
+        }
+      </ul>
     </header>
     <div class="article-body">
       <Content />

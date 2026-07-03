@@ -9,6 +9,8 @@ const connectaloud = defineCollection({
     description: z.string(),
     date: z.coerce.date(),
     category: z.string(),
+    tags: z.array(z.string()),
+    featured: z.boolean(),
   }),
 });
 

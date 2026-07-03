@@ -3,6 +3,11 @@ title: "Why Trusting AI Requires Understanding It"
 description: "A reflective ConnectAloud note on why trust in AI begins with clearer understanding, honest limits, and better questions."
 date: 2026-07-03
 category: "Responsible AI"
+tags:
+  - AI trust
+  - Transparency
+  - Human reasoning
+featured: true
 ---
 
 Trust is not the same thing as familiarity.

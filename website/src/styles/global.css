@@ -277,6 +277,7 @@ h3 {
 .article-card {
   display: grid;
   gap: 12px;
+  align-content: start;
   border: 1px solid rgba(217, 222, 227, 0.95);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.68);
@@ -306,6 +307,18 @@ h3 {
   color: rgba(54, 69, 79, 0.78);
 }
 
+.featured-label {
+  width: fit-content;
+  border-radius: 999px;
+  background: rgba(167, 122, 84, 0.14);
+  color: var(--color-charcoal);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 5px 9px;
+  text-transform: uppercase;
+}
+
 .article-card-meta,
 .article-meta {
   display: flex;
@@ -319,6 +332,25 @@ h3 {
   content: "/";
   margin-right: 14px;
   color: rgba(54, 69, 79, 0.36);
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+}
+
+.tag-list li {
+  border: 1px solid rgba(110, 143, 175, 0.28);
+  border-radius: 999px;
+  background: rgba(248, 249, 250, 0.8);
+  color: rgba(54, 69, 79, 0.74);
+  font-size: 0.86rem;
+  font-weight: 700;
+  padding: 5px 9px;
 }
 
 .article-page {
@@ -337,6 +369,10 @@ h3 {
 
 .article-meta {
   margin: 28px 0 0;
+}
+
+.article-tags {
+  margin-top: 24px;
 }
 
 .article-meta div {

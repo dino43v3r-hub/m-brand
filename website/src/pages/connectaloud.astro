@@ -2,14 +2,19 @@
 import Card from '../components/Card.astro';
 import Section from '../components/Section.astro';
 import { getCollection } from 'astro:content';
+import { getReadingTime } from '../lib/articles';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const pageDescription =
   'ConnectAloud is an M Brand space for clear, reflective conversations about technology, leadership, learning, and responsible innovation.';
 
-const articles = (await getCollection('connectaloud')).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-);
+const articles = (await getCollection('connectaloud')).sort((a, b) => {
+  if (a.data.featured !== b.data.featured) {
+    return a.data.featured ? -1 : 1;
+  }
+
+  return b.data.date.valueOf() - a.data.date.valueOf();
+});
 const base = import.meta.env.BASE_URL;
 const basePath = base.endsWith('/') ? base.slice(0, -1) : base;
 const withBase = (path: string) => `${basePath}${path}`;
@@ -47,16 +52,27 @@ const getArticleSlug = (id: string) => id.replace(/\.md$/, '');
   <Section id="articles" title="Latest Articles">
     <div class="article-grid">
       {
-        articles.map((article) => (
+        articles.map((article) => {
+          const readingTime = getReadingTime(article.body);
+
+          return (
           <a class="article-card" href={withBase(`/connectaloud/${getArticleSlug(article.id)}`)}>
+            {article.data.featured && <span class="featured-label">Featured</span>}
             <div class="article-card-meta">
               <span>{formatDate(article.data.date)}</span>
               <span>{article.data.category}</span>
+              <span>{readingTime}</span>
             </div>
             <h3>{article.data.title}</h3>
             <p>{article.data.description}</p>
+            <ul class="tag-list" aria-label="Article tags">
+              {article.data.tags.map((tag) => (
+                <li>{tag}</li>
+              ))}
+            </ul>
           </a>
-        ))
+          );
+        })
       }
     </div>
   </Section>
