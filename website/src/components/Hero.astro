@@ -5,7 +5,7 @@ export interface Props {
   eyebrow: string;
   title: string;
   lead: string;
-  image: ImageMetadata;
+  image: ImageMetadata | string;
   imageAlt: string;
   caption: string;
   primaryAction: {
@@ -28,6 +28,10 @@ const {
   primaryAction,
   secondaryAction,
 } = Astro.props;
+
+const imageSrc = typeof image === 'string' ? image : image.src;
+const imageWidth = typeof image === 'string' ? undefined : image.width;
+const imageHeight = typeof image === 'string' ? undefined : image.height;
 ---
 
 <section class="hero" aria-labelledby="page-title">
@@ -43,9 +47,9 @@ const {
 
   <aside class="hero-card" aria-label="Dino, the ConnectAloud companion">
     <img
-      src={image.src}
-      width={image.width}
-      height={image.height}
+      src={imageSrc}
+      width={imageWidth}
+      height={imageHeight}
       alt={imageAlt}
       loading="eager"
       decoding="async"
