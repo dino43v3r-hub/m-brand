@@ -1,0 +1,45 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('connectaloud');
+
+  return articles.map((article) => ({
+    params: { slug: article.id.replace(/\.md$/, '') },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+const articleDate = article.data.date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  timeZone: 'UTC',
+});
+---
+
+<BaseLayout title={`${article.data.title} | ConnectAloud | M Brand`} description={article.data.description}>
+  <article class="article-page">
+    <header class="article-header">
+      <p class="eyebrow">ConnectAloud</p>
+      <h1>{article.data.title}</h1>
+      <p class="lead">{article.data.description}</p>
+      <dl class="article-meta" aria-label="Article details">
+        <div>
+          <dt>Date</dt>
+          <dd>{articleDate}</dd>
+        </div>
+        <div>
+          <dt>Category</dt>
+          <dd>{article.data.category}</dd>
+        </div>
+      </dl>
+    </header>
+    <div class="article-body">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

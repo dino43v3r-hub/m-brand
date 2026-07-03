@@ -22,7 +22,9 @@ const withBase = (path: string) => {
 
 const isActive = (href: string) => {
   const normalizedHref = href.replace(/\/$/, '') || '/';
-  return currentPath === normalizedHref;
+  return normalizedHref === '/'
+    ? currentPath === normalizedHref
+    : currentPath === normalizedHref || currentPath.startsWith(`${normalizedHref}/`);
 };
 ---
 

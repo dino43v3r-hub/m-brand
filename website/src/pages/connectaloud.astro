@@ -1,10 +1,28 @@
 ---
 import Card from '../components/Card.astro';
 import Section from '../components/Section.astro';
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const pageDescription =
   'ConnectAloud is an M Brand space for clear, reflective conversations about technology, leadership, learning, and responsible innovation.';
+
+const articles = (await getCollection('connectaloud')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+const base = import.meta.env.BASE_URL;
+const basePath = base.endsWith('/') ? base.slice(0, -1) : base;
+const withBase = (path: string) => `${basePath}${path}`;
+
+const formatDate = (date: Date) =>
+  date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC',
+  });
+
+const getArticleSlug = (id: string) => id.replace(/\.md$/, '');
 ---
 
 <BaseLayout title="ConnectAloud | M Brand" description={pageDescription}>
@@ -23,6 +41,23 @@ const pageDescription =
       <p>
         Future ConnectAloud content should invite careful listening, clear thinking, and respectful conversation across AI, technology, leadership, theology, and learning.
       </p>
+    </div>
+  </Section>
+
+  <Section id="articles" title="Latest Articles">
+    <div class="article-grid">
+      {
+        articles.map((article) => (
+          <a class="article-card" href={withBase(`/connectaloud/${getArticleSlug(article.id)}`)}>
+            <div class="article-card-meta">
+              <span>{formatDate(article.data.date)}</span>
+              <span>{article.data.category}</span>
+            </div>
+            <h3>{article.data.title}</h3>
+            <p>{article.data.description}</p>
+          </a>
+        ))
+      }
     </div>
   </Section>
 
