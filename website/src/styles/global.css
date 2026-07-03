@@ -107,7 +107,7 @@ a {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 32px;
-  padding: 64px 0 52px;
+  padding: 72px 0 60px;
 }
 
 .hero-copy {
@@ -215,14 +215,22 @@ h3 {
 }
 
 .section {
-  padding: 44px 0;
+  padding: 54px 0;
 }
 
 .intro-grid,
-.focus-grid {
+.focus-grid,
+.principles-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
+}
+
+.section-intro {
+  max-width: 760px;
+  margin-bottom: 24px;
+  color: rgba(54, 69, 79, 0.78);
+  font-size: clamp(1.04rem, 2vw, 1.18rem);
 }
 
 .panel {
@@ -233,6 +241,27 @@ h3 {
 }
 
 .panel p {
+  margin-bottom: 0;
+  color: rgba(54, 69, 79, 0.78);
+}
+
+.framework-panel {
+  max-width: 850px;
+  border: 1px solid rgba(110, 143, 175, 0.28);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.68);
+  padding: clamp(24px, 5vw, 40px);
+}
+
+.framework-panel h3 {
+  max-width: 720px;
+  margin-bottom: 12px;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  line-height: 1.2;
+}
+
+.framework-panel p:last-child {
+  max-width: 720px;
   margin-bottom: 0;
   color: rgba(54, 69, 79, 0.78);
 }
@@ -275,6 +304,10 @@ h3 {
   }
 
   .focus-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .principles-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
