@@ -1,0 +1,60 @@
+---
+import Card from '../components/Card.astro';
+import Section from '../components/Section.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageDescription =
+  'Connect with ConnectAloud through thoughtful conversation, collaboration, and future opportunities.';
+---
+
+<BaseLayout title="Connect | ConnectAloud" description={pageDescription}>
+  <section class="page-hero" aria-labelledby="page-title">
+    <p class="eyebrow">Connect</p>
+    <h1 id="page-title">Thoughtful connection begins with a better conversation.</h1>
+    <p class="lead">
+      This page is a quiet starting point for readers, collaborators, and communities who want to continue exploring the questions ConnectAloud raises.
+    </p>
+  </section>
+
+  <Section id="continue-the-conversation" title="Continue the Conversation">
+    <div class="framework-panel">
+      <p class="eyebrow">A measured invitation</p>
+      <h3>Good engagement does not need to move quickly to be meaningful.</h3>
+      <p>
+        ConnectAloud welcomes thoughtful questions, reflections, and ideas that help deepen the conversation around AI, technology, leadership, theology, and learning.
+      </p>
+    </div>
+  </Section>
+
+  <Section id="current-ways" title="Current Ways to Connect">
+    <div class="focus-grid">
+      <Card title="Follow the writing">
+        <p>New articles and reflections will remain the primary way to follow the development of ConnectAloud.</p>
+      </Card>
+      <Card title="Share a thoughtful note">
+        <p>Future contact options will be added when there is a clear and sustainable way to respond well.</p>
+      </Card>
+      <Card title="Bring a real question">
+        <p>The best conversations usually begin with a specific question, context, or challenge worth exploring carefully.</p>
+      </Card>
+    </div>
+  </Section>
+
+  <Section id="collaboration" title="Collaboration">
+    <div class="statement">
+      <p>
+        Collaboration should be grounded in mutual respect, intellectual honesty, and a shared desire to help people think more clearly.
+      </p>
+    </div>
+  </Section>
+
+  <Section id="future-opportunities" title="Future Opportunities">
+    <div class="framework-panel">
+      <p class="eyebrow">Still developing</p>
+      <h3>More ways to connect will be added as the publication grows.</h3>
+      <p>
+        Possibilities may include conversations, interviews, speaking invitations, learning resources, or collaborative projects. The priority will remain thoughtful engagement over activity for its own sake.
+      </p>
+    </div>
+  </Section>
+</BaseLayout>
