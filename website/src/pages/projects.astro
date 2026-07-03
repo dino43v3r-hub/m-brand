@@ -1,5 +1,6 @@
 ---
 import Card from '../components/Card.astro';
+import DinoCompanion from '../components/DinoCompanion.astro';
 import Section from '../components/Section.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
@@ -8,12 +9,13 @@ const pageDescription =
 ---
 
 <BaseLayout title="Projects | ConnectAloud" description={pageDescription}>
-  <section class="page-hero" aria-labelledby="page-title">
+  <section class="page-hero with-companion" aria-labelledby="page-title">
     <p class="eyebrow">Projects</p>
     <h1 id="page-title">Where ideas become practical tools, research, or experiments.</h1>
     <p class="lead">
       ConnectAloud projects are developing carefully. This page tracks work that is in progress, being explored, or still taking shape.
     </p>
+    <DinoCompanion />
   </section>
 
   <Section id="current-projects" title="Current Projects">

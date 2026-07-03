@@ -1,5 +1,6 @@
 ---
 import Card from '../components/Card.astro';
+import DinoCompanion from '../components/DinoCompanion.astro';
 import Section from '../components/Section.astro';
 import { getCollection } from 'astro:content';
 import { getReadingTime } from '../lib/articles';
@@ -31,12 +32,13 @@ const getArticleSlug = (id: string) => id.replace(/\.md$/, '');
 ---
 
 <BaseLayout title="Articles | ConnectAloud" description={pageDescription}>
-  <section class="page-hero" aria-labelledby="page-title">
+  <section class="page-hero with-companion" aria-labelledby="page-title">
     <p class="eyebrow">Articles</p>
     <h1 id="page-title">Writing that makes room for thoughtfulness.</h1>
     <p class="lead">
       ConnectAloud publishes reflections and conversations that help complex ideas become easier to approach.
     </p>
+    <DinoCompanion />
   </section>
 
   <Section id="purpose" title="Purpose">

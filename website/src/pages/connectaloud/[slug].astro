@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import DinoCompanion from '../../components/DinoCompanion.astro';
 import { getReadingTime } from '../../lib/articles';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
@@ -25,10 +26,11 @@ const articleDate = article.data.date.toLocaleDateString('en-US', {
 
 <BaseLayout title={`${article.data.title} | ConnectAloud`} description={article.data.description}>
   <article class="article-page">
-    <header class="article-header">
+    <header class="article-header with-companion">
       <p class="eyebrow">ConnectAloud</p>
       <h1>{article.data.title}</h1>
       <p class="lead">{article.data.description}</p>
+      <DinoCompanion />
       <dl class="article-meta" aria-label="Article details">
         <div>
           <dt>Date</dt>

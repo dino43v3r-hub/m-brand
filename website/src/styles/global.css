@@ -137,6 +137,26 @@ a {
   font-size: clamp(1.02rem, 2.3vw, 1.18rem);
 }
 
+.dino-companion {
+  width: min(132px, 38vw);
+  border: 1px solid rgba(217, 222, 227, 0.9);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.66);
+  box-shadow: 0 16px 40px rgba(54, 69, 79, 0.08);
+  padding: 10px;
+}
+
+.dino-companion img {
+  display: block;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.page-hero .dino-companion,
+.article-header .dino-companion {
+  margin-top: 24px;
+}
+
 .not-found {
   min-height: 48vh;
 }
@@ -506,6 +526,31 @@ h3 {
     grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
     align-items: center;
     padding-top: 66px;
+  }
+
+  .page-hero.with-companion,
+  .article-header.with-companion {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(104px, 132px);
+    column-gap: 34px;
+    align-items: end;
+  }
+
+  .page-hero.with-companion > :not(.dino-companion),
+  .article-header.with-companion > :not(.dino-companion) {
+    grid-column: 1;
+  }
+
+  .page-hero.with-companion .dino-companion,
+  .article-header.with-companion .dino-companion {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    justify-self: end;
+    margin-top: 0;
+  }
+
+  .article-header.with-companion .dino-companion {
+    align-self: start;
   }
 
   .intro-grid {

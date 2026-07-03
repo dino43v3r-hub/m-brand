@@ -1,5 +1,6 @@
 ---
 import Card from '../components/Card.astro';
+import DinoCompanion from '../components/DinoCompanion.astro';
 import Section from '../components/Section.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
@@ -8,12 +9,13 @@ const pageDescription =
 ---
 
 <BaseLayout title="Resources | ConnectAloud" description={pageDescription}>
-  <section class="page-hero" aria-labelledby="page-title">
+  <section class="page-hero with-companion" aria-labelledby="page-title">
     <p class="eyebrow">Resources</p>
     <h1 id="page-title">A curated library for learning carefully and thinking clearly.</h1>
     <p class="lead">
       ConnectAloud values lifelong learning. This page gathers resources that have contributed to understanding, raised better questions, or helped make complex ideas easier to approach.
     </p>
+    <DinoCompanion />
   </section>
 
   <Section id="library-philosophy" title="Library Philosophy">

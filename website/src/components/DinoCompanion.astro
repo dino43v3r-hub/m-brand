@@ -1,0 +1,21 @@
+---
+import dinoImage from '../../../assets/canonical/dino/Dino_Master_v1.0.png';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+const companionClass = ['dino-companion', className].filter(Boolean).join(' ');
+---
+
+<aside class={companionClass} aria-label="ConnectAloud companion">
+  <img
+    src={dinoImage.src}
+    width={dinoImage.width}
+    height={dinoImage.height}
+    alt="Canonical Dino, the ConnectAloud companion."
+    loading="lazy"
+    decoding="async"
+  />
+</aside>
