@@ -4,38 +4,65 @@ import Section from '../components/Section.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const pageDescription =
-  'Explore ConnectAloud project areas focused on responsible AI, knowledge work, leadership, learning, and human-centered technology.';
+  'Explore current and future ConnectAloud projects where ideas become practical tools, research, or experiments.';
 ---
 
 <BaseLayout title="Projects | ConnectAloud" description={pageDescription}>
   <section class="page-hero" aria-labelledby="page-title">
     <p class="eyebrow">Projects</p>
-    <h1 id="page-title">Practical work shaped by thoughtful principles.</h1>
+    <h1 id="page-title">Where ideas become practical tools, research, or experiments.</h1>
     <p class="lead">
-      Project work will appear here when there is something real to share, with an emphasis on usefulness, transparency, and responsible innovation.
+      ConnectAloud projects are developing carefully. This page tracks work that is in progress, being explored, or still taking shape.
     </p>
   </section>
 
-  <Section id="project-framework" title="Project Framework">
+  <Section id="current-projects" title="Current Projects">
     <div class="framework-panel">
-      <p class="eyebrow">Prepared for future projects</p>
-      <h3>Projects should help people think, decide, learn, or build with more clarity.</h3>
+      <p class="eyebrow">In progress</p>
+      <h3>The first priority is building a thoughtful foundation for the publication itself.</h3>
       <p>
-        The ConnectAloud project space is intentionally quiet until work is ready. The standard is not activity for its own sake, but meaningful contribution.
+        Current work is focused on shaping ConnectAloud into a clear home for articles, resources, and future project notes. The goal is to build slowly enough that the structure can support meaningful work later.
       </p>
     </div>
   </Section>
 
-  <Section id="project-areas" title="Areas of Interest">
+  <Section id="research-projects" title="Research Projects">
+    <p class="section-intro">
+      Research projects are where questions can be explored with more patience, source awareness, and intellectual honesty.
+    </p>
     <div class="focus-grid">
       <Card title="Responsible AI">
-        <p>Experiments and resources that make AI systems more trustworthy, transparent, and useful.</p>
+        <p>Exploring how AI systems can become more trustworthy, transparent, and useful while keeping human judgment visible.</p>
       </Card>
-      <Card title="Knowledge engineering">
-        <p>Work that improves how information is structured, evaluated, connected, and used.</p>
+      <Card title="Knowledge work">
+        <p>Developing ways to organize research, compare ideas, and make learning easier to revisit over time.</p>
       </Card>
-      <Card title="Learning tools">
-        <p>Practical supports for better reasoning, reflection, and lifelong learning.</p>
+      <Card title="Technology and theology">
+        <p>Considering how technical change raises deeper questions about truth, responsibility, wisdom, and service.</p>
+      </Card>
+    </div>
+  </Section>
+
+  <Section id="experiments" title="Experiments">
+    <div class="framework-panel">
+      <p class="eyebrow">Testing with humility</p>
+      <h3>Experiments are a way to learn before claiming too much.</h3>
+      <p>
+        Some ideas may become small tools, prompts, workflows, or examples. Others may simply clarify what is not useful yet. ConnectAloud treats both outcomes as part of learning.
+      </p>
+    </div>
+  </Section>
+
+  <Section id="future-work" title="Future Work">
+    <div class="focus-grid">
+      <Card title="Learning resources">
+        <p>Developing resources that help readers approach complex topics with curiosity, care, and clearer questions.</p>
+      </Card>
+      <Card title="Practical tools">
+        <p>Exploring simple tools that support reasoning, reflection, research, and responsible use of technology.</p>
+      </Card>
+      <Card title="Project notes">
+        <p>Future updates may document what is being built, what is being learned, and what still needs more thought.</p>
       </Card>
     </div>
   </Section>
