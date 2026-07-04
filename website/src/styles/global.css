@@ -448,8 +448,7 @@ h3 {
 .coffee-article-meta-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px 18px;
+  gap: 12px;
   max-width: 920px;
   margin: 24px 0 0;
 }
@@ -473,32 +472,23 @@ h3 {
   font-weight: 700;
 }
 
-.article-header-actions {
-  display: flex;
-  min-height: 32px;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px 12px;
-  justify-content: flex-end;
-  margin-left: auto;
-}
-
 .copy-link-button {
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: 4px;
   background: transparent;
-  color: rgba(54, 69, 79, 0.58);
+  color: rgba(54, 69, 79, 0.68);
   cursor: pointer;
   font: inherit;
-  font-size: 0.86rem;
+  font-size: inherit;
   font-weight: 750;
-  padding: 5px 7px;
+  padding: 0;
 }
 
 .copy-link-button:hover,
 .copy-link-button:focus-visible {
   color: var(--color-charcoal);
-  background: rgba(255, 255, 255, 0.72);
+  text-decoration: underline;
+  text-underline-offset: 0.22em;
 }
 
 .copy-link-status {
@@ -510,6 +500,10 @@ h3 {
 
 .copy-link-status.visible {
   opacity: 1;
+}
+
+.copy-link-meta-item {
+  position: relative;
 }
 
 .coffee-intro-note {
@@ -846,6 +840,12 @@ h3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .coffee-article-page .article-feature-image {
+    max-height: 575px;
+    object-fit: cover;
+    object-position: center;
+  }
+
   .site-footer {
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: start;
@@ -874,10 +874,5 @@ h3 {
   .coffee-article-meta-row {
     align-items: flex-start;
     flex-direction: column;
-  }
-
-  .article-header-actions {
-    justify-content: flex-start;
-    margin-left: 0;
   }
 }
