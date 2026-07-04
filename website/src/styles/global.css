@@ -397,6 +397,35 @@ h3 {
   margin: 22px 0 0;
 }
 
+.coffee-article-meta {
+  display: grid;
+  gap: 10px;
+  max-width: 760px;
+  margin: 24px 0 0;
+}
+
+.coffee-article-meta div {
+  display: grid;
+  gap: 2px;
+  border-left: 3px solid rgba(167, 122, 84, 0.34);
+  padding-left: 12px;
+}
+
+.coffee-article-meta dt {
+  color: rgba(54, 69, 79, 0.56);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.coffee-article-meta dd {
+  margin: 0;
+  color: rgba(54, 69, 79, 0.78);
+  font-size: 0.96rem;
+  font-weight: 700;
+}
+
 .article-tags {
   margin-top: 20px;
 }
@@ -442,6 +471,17 @@ h3 {
   font-size: clamp(1.04rem, 2vw, 1.16rem);
 }
 
+.article-signature {
+  max-width: 760px;
+  margin-top: 34px;
+  color: rgba(54, 69, 79, 0.74);
+}
+
+.article-signature p {
+  margin-bottom: 0.35rem;
+  font-size: clamp(1.04rem, 2vw, 1.14rem);
+}
+
 .further-reading {
   max-width: 760px;
   margin-top: 44px;
@@ -449,9 +489,26 @@ h3 {
   padding-top: 28px;
 }
 
+.reading-card {
+  border: 1px solid rgba(217, 222, 227, 0.95);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.66);
+  padding: clamp(22px, 4vw, 30px);
+}
+
 .further-reading h2 {
   margin-bottom: 14px;
   font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+
+.further-reading .eyebrow {
+  margin-bottom: 10px;
+}
+
+.reading-note {
+  max-width: 680px;
+  margin-bottom: 18px;
+  color: rgba(54, 69, 79, 0.74);
 }
 
 .further-reading ul {
@@ -464,6 +521,24 @@ h3 {
 .further-reading li {
   color: rgba(54, 69, 79, 0.84);
   font-size: clamp(1.02rem, 2vw, 1.12rem);
+}
+
+.article-bottom-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  max-width: 760px;
+  margin-top: 24px;
+  color: rgba(54, 69, 79, 0.62);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.article-bottom-nav span {
+  border: 1px solid rgba(217, 222, 227, 0.95);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.54);
+  padding: 9px 12px;
 }
 
 .framework-panel {
@@ -597,6 +672,10 @@ h3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .coffee-article-meta {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .site-footer {
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: start;
@@ -616,5 +695,9 @@ h3 {
 
   .site-nav {
     flex-wrap: wrap;
+  }
+
+  .article-bottom-nav {
+    display: grid;
   }
 }
