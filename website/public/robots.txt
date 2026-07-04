@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dino43v3r-hub.github.io/m-brand/sitemap-index.xml

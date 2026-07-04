@@ -13,7 +13,15 @@ const withBase = (path: string) => `${basePath}${path}`;
 const conversations = articles.filter((article) => article.collection === pageTitle);
 ---
 
-<BaseLayout title={`${pageTitle} | ConnectAloud`} description={description}>
+<BaseLayout
+  title={`${pageTitle} | ConnectAloud`}
+  description={description}
+  type="website"
+  canonicalPath="/coffee-with-dino/"
+  ogImage="/images/dino/dino-coffee-v1.0.jpg"
+  author="M"
+  keywords="Coffee with Dino, AI, leadership, technology, faith, human identity"
+>
   <section class="coffee-landing-hero" aria-labelledby="page-title">
     <p class="coffee-mark" aria-hidden="true">☕</p>
     <h1 id="page-title">{pageTitle}</h1>

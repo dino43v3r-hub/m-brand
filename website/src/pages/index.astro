@@ -12,7 +12,15 @@ const basePath = base.endsWith('/') ? base.slice(0, -1) : base;
 const withBase = (path: string) => `${basePath}${path}`;
 ---
 
-<BaseLayout title="ConnectAloud" description={pageDescription}>
+<BaseLayout
+  title="ConnectAloud"
+  description={pageDescription}
+  type="website"
+  canonicalPath="/"
+  ogImage="/images/dino/thinking-dino-v1.0.png"
+  author="M"
+  keywords="AI, technology, leadership, theology, responsible AI, ConnectAloud"
+>
   <Hero
     eyebrow="Curiosity. Clarity. Responsible innovation."
     title="ConnectAloud is a publication for thoughtful exploration at the intersection of AI, technology, leadership, and theology."
