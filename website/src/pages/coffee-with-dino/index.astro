@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/Section.astro';
+
+const pageTitle = 'Saturday Morning Coffee with Dino';
+const description =
+  'Coffee with Dino is an occasional ConnectAloud conversation about AI, leadership, technology, faith, and what it means to be human.';
+const base = import.meta.env.BASE_URL;
+const basePath = base.endsWith('/') ? base.slice(0, -1) : base;
+const withBase = (path: string) => `${basePath}${path}`;
+
+const conversations = [
+  {
+    title: 'Following One Question',
+    published: 'July 4, 2026',
+    readingTime: '7 min',
+    description:
+      'A conversation that began with AI ethics and unexpectedly became an exploration of memory, identity, patterns, and what it means to be human.',
+    href: withBase('/coffee-with-dino/following-one-question/'),
+  },
+];
+---
+
+<BaseLayout title={`${pageTitle} | ConnectAloud`} description={description}>
+  <section class="coffee-landing-hero" aria-labelledby="page-title">
+    <p class="coffee-mark" aria-hidden="true">☕</p>
+    <h1 id="page-title">{pageTitle}</h1>
+    <div class="coffee-landing-copy">
+      <p>Sometimes the best conversations don't begin with answers.</p>
+      <p>They begin with someone willing to say,</p>
+      <p>"I don't know."</p>
+      <p>
+        Coffee with Dino is an occasional conversation about AI, leadership, technology, faith, and what it means to be human.
+      </p>
+      <p>Pull up a chair, pour yourself a cup of coffee, and think alongside us.</p>
+    </div>
+  </section>
+
+  <Section id="conversations" title="Conversations">
+    <div class="coffee-conversation-grid">
+      {
+        conversations.map((conversation) => (
+          <a class="article-card coffee-conversation-card" href={conversation.href}>
+            <div class="article-card-meta">
+              <span>{conversation.published}</span>
+              <span>{conversation.readingTime}</span>
+            </div>
+            <h3>{conversation.title}</h3>
+            <p>{conversation.description}</p>
+          </a>
+        ))
+      }
+    </div>
+  </Section>
+</BaseLayout>

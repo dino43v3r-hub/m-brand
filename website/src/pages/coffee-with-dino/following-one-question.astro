@@ -8,11 +8,12 @@ const description =
 const base = import.meta.env.BASE_URL;
 const basePath = base.endsWith('/') ? base.slice(0, -1) : base;
 const coffeeImageSrc = `${basePath}/images/dino/dino-coffee-v1.0.jpg`;
+const coffeeHomePath = `${basePath}/coffee-with-dino/`;
 
 const articleMeta = [
-  { label: 'Published', value: 'July 4, 2026' },
-  { label: 'Reading Time', value: '7 min' },
-  { label: 'Topics', value: 'AI • Philosophy • Human Identity • Pattern Recognition' },
+  { icon: '📅', value: 'July 4, 2026' },
+  { icon: '☕', value: '7 minute read' },
+  { icon: '🏷', value: 'AI • Philosophy • Human Identity • Pattern Recognition' },
 ];
 
 const furtherReading = [
@@ -32,16 +33,20 @@ const furtherReading = [
       <p class="eyebrow">☕ Saturday Morning Coffee with Dino</p>
       <h1>{pageTitle}</h1>
       <p class="lead">{subtitle}</p>
-      <dl class="coffee-article-meta" aria-label="Article details">
+      <div class="article-header-actions">
+        <button class="copy-link-button" type="button" data-copy-link>Copy Link</button>
+        <span class="copy-link-status" data-copy-link-status aria-live="polite"></span>
+      </div>
+      <ul class="coffee-article-meta" aria-label="Article details">
         {
           articleMeta.map((item) => (
-            <div>
-              <dt>{item.label}</dt>
-              <dd>{item.value}</dd>
-            </div>
+            <li>
+              <span aria-hidden="true">{item.icon}</span>
+              <span>{item.value}</span>
+            </li>
           ))
         }
-      </dl>
+      </ul>
     </header>
 
     <section class="coffee-intro-note" aria-label="Coffee with Dino introduction">
@@ -122,6 +127,11 @@ const furtherReading = [
       <p>— M & Dino</p>
     </div>
 
+    <section class="coffee-afterword" aria-label="More Coffee with Dino conversations">
+      <p>Enjoyed this conversation?</p>
+      <a href={coffeeHomePath}>Explore more Coffee with Dino conversations.</a>
+    </section>
+
     <section class="further-reading reading-card" aria-labelledby="further-reading-title">
       <p class="eyebrow">Context</p>
       <h2 id="further-reading-title">Further Reading</h2>
@@ -138,8 +148,32 @@ const furtherReading = [
     </section>
 
     <nav class="article-bottom-nav" aria-label="Coffee with Dino navigation">
-      <span>Coffee with Dino Home</span>
-      <span>Next Conversation</span>
+      <a href={coffeeHomePath}>← Coffee with Dino</a>
+      <span class="disabled">Next Conversation →</span>
     </nav>
   </article>
+
+  <script>
+    const copyButton = document.querySelector('[data-copy-link]');
+    const copyStatus = document.querySelector('[data-copy-link-status]');
+    let copyStatusTimeout: number | undefined;
+
+    copyButton?.addEventListener('click', async () => {
+      if (!copyStatus) return;
+
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        copyStatus.textContent = '✓ Link copied!';
+        copyStatus.classList.add('visible');
+        window.clearTimeout(copyStatusTimeout);
+        copyStatusTimeout = window.setTimeout(() => {
+          copyStatus.classList.remove('visible');
+          copyStatus.textContent = '';
+        }, 2000);
+      } catch {
+        copyStatus.textContent = 'Copy failed';
+        copyStatus.classList.add('visible');
+      }
+    });
+  </script>
 </BaseLayout>
