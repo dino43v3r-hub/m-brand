@@ -5,6 +5,9 @@ const pageTitle = 'Saturday Morning Coffee with Dino';
 const subtitle = 'Following One Question';
 const description =
   'A Saturday Morning Coffee with Dino reflection on AI, memory, learning, and the questions that lead us toward what it means to be human.';
+const base = import.meta.env.BASE_URL;
+const basePath = base.endsWith('/') ? base.slice(0, -1) : base;
+const coffeeImageSrc = `${basePath}/images/dino/dino-coffee-v1.0.jpg`;
 
 const furtherReading = [
   {
@@ -27,7 +30,7 @@ const furtherReading = [
 
     <img
       class="article-feature-image"
-      src="/images/dino/dino-coffee-v1.0.jpg"
+      src={coffeeImageSrc}
       alt="Dino sitting with coffee for a thoughtful Saturday morning conversation."
     />
 
