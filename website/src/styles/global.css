@@ -115,8 +115,8 @@ a {
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: clamp(34px, 7vw, 76px);
-  padding: clamp(64px, 9vw, 104px) 0 clamp(54px, 7vw, 76px);
+  gap: clamp(30px, 6vw, 66px);
+  padding: clamp(56px, 7.5vw, 88px) 0 clamp(46px, 6vw, 64px);
 }
 
 .page-hero {
@@ -191,8 +191,8 @@ h1 {
 }
 
 .hero h1 {
-  font-size: clamp(1.9rem, 5.6vw, 3.7rem);
-  line-height: 1.02;
+  font-size: clamp(1.62rem, 4.55vw, 2.98rem);
+  line-height: 1.05;
 }
 
 h2 {
@@ -248,26 +248,12 @@ h3 {
 }
 
 .hero-card {
-  position: relative;
-  isolation: isolate;
   display: grid;
-  gap: 18px;
+  gap: 14px;
   align-content: center;
   justify-items: center;
   border-radius: 8px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.22)),
-    rgba(170, 185, 200, 0.08);
-  padding: clamp(18px, 4vw, 34px);
-}
-
-.hero-card::before {
-  position: absolute;
-  inset: 12%;
-  z-index: -1;
-  border-radius: 8px;
-  background: rgba(110, 143, 175, 0.1);
-  content: "";
+  padding: clamp(12px, 3vw, 24px);
 }
 
 .hero-card img {
@@ -277,10 +263,11 @@ h3 {
 }
 
 .caption {
-  max-width: 34rem;
+  max-width: 28rem;
   margin: 0;
-  color: rgba(54, 69, 79, 0.72);
-  font-size: 0.95rem;
+  color: rgba(54, 69, 79, 0.58);
+  font-size: 0.88rem;
+  line-height: 1.5;
   text-align: center;
 }
 
@@ -543,6 +530,7 @@ h3 {
 
   .hero-card {
     min-height: 100%;
+    transform: translateY(-18px);
   }
 
   .page-hero.with-companion,
