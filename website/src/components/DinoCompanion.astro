@@ -9,13 +9,12 @@ const { class: className } = Astro.props;
 const companionClass = ['dino-companion', className].filter(Boolean).join(' ');
 ---
 
-<aside class={companionClass} aria-label="ConnectAloud companion">
-  <img
-    src={dinoImage.src}
-    width={dinoImage.width}
-    height={dinoImage.height}
-    alt="Canonical Dino, the ConnectAloud companion."
-    loading="lazy"
-    decoding="async"
-  />
-</aside>
+<img
+  class={companionClass}
+  src={dinoImage.src}
+  width={dinoImage.width}
+  height={dinoImage.height}
+  alt="Canonical Dino, the ConnectAloud companion."
+  loading="lazy"
+  decoding="async"
+/>

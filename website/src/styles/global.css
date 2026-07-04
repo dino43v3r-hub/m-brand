@@ -138,12 +138,8 @@ a {
 }
 
 .dino-companion {
-  width: min(110px, calc(38vw - 22px));
-}
-
-.dino-companion img {
   display: block;
-  width: 100%;
+  width: min(110px, calc(38vw - 22px));
   filter: drop-shadow(0 12px 18px rgba(54, 69, 79, 0.08));
 }
 
