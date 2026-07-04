@@ -5,11 +5,14 @@ export interface Props {
 
 const { class: className } = Astro.props;
 const companionClass = ['dino-companion', className].filter(Boolean).join(' ');
+const base = import.meta.env.BASE_URL;
+const normalizedBase = base.endsWith('/') ? base : `${base}/`;
+const imageSrc = `${normalizedBase}images/dino/interior-dino-companion-v1.0.png`;
 ---
 
 <img
   class={companionClass}
-  src="/images/dino/interior-dino-companion-v1.0.png"
+  src={imageSrc}
   alt="Dino, the ConnectAloud interior page companion."
   loading="lazy"
   decoding="async"
