@@ -138,18 +138,13 @@ a {
 }
 
 .dino-companion {
-  width: min(132px, 38vw);
-  border: 1px solid rgba(217, 222, 227, 0.9);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.66);
-  box-shadow: 0 16px 40px rgba(54, 69, 79, 0.08);
-  padding: 10px;
+  width: min(110px, calc(38vw - 22px));
 }
 
 .dino-companion img {
   display: block;
   width: 100%;
-  border-radius: 6px;
+  filter: drop-shadow(0 12px 18px rgba(54, 69, 79, 0.08));
 }
 
 .page-hero .dino-companion,
