@@ -13,7 +13,7 @@ const conversations = [
   {
     title: 'Following One Question',
     published: 'July 4, 2026',
-    readingTime: '7 min',
+    readingTime: '7 min read',
     description:
       'A conversation that began with AI ethics and unexpectedly became an exploration of memory, identity, patterns, and what it means to be human.',
     href: withBase('/coffee-with-dino/following-one-question/'),
@@ -36,14 +36,17 @@ const conversations = [
     </div>
   </section>
 
-  <Section id="conversations" title="Conversations">
+  <Section id="conversations" title="Pull Up a Chair">
+    <div class="section-intro coffee-section-intro">
+      <p>Every Coffee with Dino conversation begins with curiosity.</p>
+      <p>Pull up a chair, pour yourself a cup of coffee, and think alongside us.</p>
+    </div>
     <div class="coffee-conversation-grid">
       {
         conversations.map((conversation) => (
           <a class="article-card coffee-conversation-card" href={conversation.href}>
             <div class="article-card-meta">
-              <span>{conversation.published}</span>
-              <span>{conversation.readingTime}</span>
+              <span>{conversation.published} · {conversation.readingTime}</span>
             </div>
             <h3>{conversation.title}</h3>
             <p>{conversation.description}</p>

@@ -445,12 +445,21 @@ h3 {
   margin: 22px 0 0;
 }
 
+.coffee-article-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 18px;
+  max-width: 920px;
+  margin: 24px 0 0;
+}
+
 .coffee-article-meta {
   display: flex;
   flex-wrap: wrap;
   gap: 9px 16px;
   max-width: 820px;
-  margin: 24px 0 0;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -470,7 +479,8 @@ h3 {
   align-items: center;
   flex-wrap: wrap;
   gap: 8px 12px;
-  margin-top: -10px;
+  justify-content: flex-end;
+  margin-left: auto;
 }
 
 .copy-link-button {
@@ -850,5 +860,15 @@ h3 {
 
   .article-bottom-nav {
     display: grid;
+  }
+
+  .coffee-article-meta-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .article-header-actions {
+    justify-content: flex-start;
+    margin-left: 0;
   }
 }

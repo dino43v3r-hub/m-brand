@@ -1,8 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const pageTitle = 'Saturday Morning Coffee with Dino';
-const subtitle = 'Following One Question';
+const pageTitle = 'Following One Question';
 const description =
   'A Saturday Morning Coffee with Dino reflection on AI, memory, learning, and the questions that lead us toward what it means to be human.';
 const base = import.meta.env.BASE_URL;
@@ -32,21 +31,22 @@ const furtherReading = [
     <header class="article-header">
       <p class="eyebrow">☕ Saturday Morning Coffee with Dino</p>
       <h1>{pageTitle}</h1>
-      <p class="lead">{subtitle}</p>
-      <div class="article-header-actions">
-        <button class="copy-link-button" type="button" data-copy-link>Copy Link</button>
-        <span class="copy-link-status" data-copy-link-status aria-live="polite"></span>
+      <div class="coffee-article-meta-row">
+        <ul class="coffee-article-meta" aria-label="Article details">
+          {
+            articleMeta.map((item) => (
+              <li>
+                <span aria-hidden="true">{item.icon}</span>
+                <span>{item.value}</span>
+              </li>
+            ))
+          }
+        </ul>
+        <div class="article-header-actions">
+          <button class="copy-link-button" type="button" data-copy-link>Copy Link</button>
+          <span class="copy-link-status" data-copy-link-status aria-live="polite"></span>
+        </div>
       </div>
-      <ul class="coffee-article-meta" aria-label="Article details">
-        {
-          articleMeta.map((item) => (
-            <li>
-              <span aria-hidden="true">{item.icon}</span>
-              <span>{item.value}</span>
-            </li>
-          ))
-        }
-      </ul>
     </header>
 
     <section class="coffee-intro-note" aria-label="Coffee with Dino introduction">
