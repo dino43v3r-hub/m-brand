@@ -1,0 +1,206 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+type ArticleMetaItem = {
+  icon: string;
+  value: string;
+};
+
+type FurtherReadingItem = {
+  title: string;
+};
+
+type Afterword = {
+  prompt: string;
+  href: string;
+  label: string;
+};
+
+type BottomNav = {
+  backHref: string;
+  backLabel: string;
+  nextHref?: string;
+  nextLabel?: string;
+};
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath: string;
+  ogImage: string;
+  publishedTime: string;
+  author?: string;
+  keywords?: string;
+  eyebrow: string;
+  metaItems: ArticleMetaItem[];
+  heroImageSrc: string;
+  heroImageAlt: string;
+  welcomeTitle?: string;
+  welcomeIcon?: string;
+  welcomeParagraphs?: string[];
+  signatureLines?: string[];
+  afterword?: Afterword;
+  furtherReading?: FurtherReadingItem[];
+  furtherReadingEyebrow?: string;
+  furtherReadingTitle?: string;
+  furtherReadingNote?: string;
+  bottomNav?: BottomNav;
+  articleClass?: string;
+}
+
+const {
+  title,
+  description,
+  canonicalPath,
+  ogImage,
+  publishedTime,
+  author = 'M',
+  keywords,
+  eyebrow,
+  metaItems,
+  heroImageSrc,
+  heroImageAlt,
+  welcomeTitle = 'Welcome',
+  welcomeIcon = '☕',
+  welcomeParagraphs = [],
+  signatureLines = ['☕ Until next time...', '— M & Dino'],
+  afterword,
+  furtherReading = [],
+  furtherReadingEyebrow = 'Context',
+  furtherReadingTitle = 'Further Reading',
+  furtherReadingNote,
+  bottomNav,
+  articleClass = 'coffee-article-page',
+} = Astro.props;
+---
+
+<BaseLayout
+  title={`${title} | ConnectAloud`}
+  description={description}
+  type="article"
+  canonicalPath={canonicalPath}
+  ogImage={ogImage}
+  publishedTime={publishedTime}
+  author={author}
+  keywords={keywords}
+>
+  <article class:list={['article-page', articleClass]}>
+    <header class="article-header">
+      <p class="eyebrow">{eyebrow}</p>
+      <h1>{title}</h1>
+      <div class="coffee-article-meta-row">
+        <ul class="coffee-article-meta" aria-label="Article details">
+          {
+            metaItems.length > 0 && (
+              <li>
+                <span aria-hidden="true">{metaItems[0].icon}</span>
+                <span>{metaItems[0].value}</span>
+              </li>
+            )
+          }
+          <li class="copy-link-meta-item">
+            <span aria-hidden="true">🔗</span>
+            <button class="copy-link-button" type="button" data-copy-link>Share Conversation</button>
+            <span class="copy-link-status" data-copy-link-status aria-live="polite"></span>
+          </li>
+          {
+            metaItems.slice(1).map((item) => (
+              <li>
+                <span aria-hidden="true">{item.icon}</span>
+                <span>{item.value}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </header>
+
+    {
+      welcomeParagraphs.length > 0 && (
+        <section class="coffee-intro-note" aria-label="Article introduction">
+          <h2><span aria-hidden="true">{welcomeIcon}</span> {welcomeTitle}</h2>
+          {welcomeParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+        </section>
+      )
+    }
+
+    <img
+      class="article-feature-image"
+      src={heroImageSrc}
+      alt={heroImageAlt}
+    />
+
+    <div class="article-body">
+      <slot />
+    </div>
+
+    {
+      signatureLines.length > 0 && (
+        <div class="article-signature" aria-label="Article signature">
+          {signatureLines.map((line) => <p>{line}</p>)}
+        </div>
+      )
+    }
+
+    {
+      afterword && (
+        <section class="coffee-afterword" aria-label="More conversations">
+          <p>{afterword.prompt}</p>
+          <a href={afterword.href}>{afterword.label}</a>
+        </section>
+      )
+    }
+
+    {
+      furtherReading.length > 0 && (
+        <section class="further-reading reading-card" aria-labelledby="further-reading-title">
+          <p class="eyebrow">{furtherReadingEyebrow}</p>
+          <h2 id="further-reading-title">{furtherReadingTitle}</h2>
+          {furtherReadingNote && <p class="reading-note">{furtherReadingNote}</p>}
+          <ul>
+            {furtherReading.map((item) => <li>{item.title}</li>)}
+          </ul>
+        </section>
+      )
+    }
+
+    {
+      bottomNav && (
+        <nav class="article-bottom-nav" aria-label="Article navigation">
+          <a href={bottomNav.backHref}>← {bottomNav.backLabel}</a>
+          {
+            bottomNav.nextHref ? (
+              <a href={bottomNav.nextHref}>{bottomNav.nextLabel ?? 'Next Conversation'} →</a>
+            ) : (
+              <span class="disabled">{bottomNav.nextLabel ?? 'Next Conversation'} →</span>
+            )
+          }
+        </nav>
+      )
+    }
+  </article>
+
+  <script>
+    const copyButton = document.querySelector('[data-copy-link]');
+    const copyStatus = document.querySelector('[data-copy-link-status]');
+    let copyStatusTimeout: number | undefined;
+
+    copyButton?.addEventListener('click', async () => {
+      if (!copyStatus) return;
+
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        copyStatus.textContent = '✓ Conversation link copied!';
+        copyStatus.classList.add('visible');
+        window.clearTimeout(copyStatusTimeout);
+        copyStatusTimeout = window.setTimeout(() => {
+          copyStatus.classList.remove('visible');
+          copyStatus.textContent = '';
+        }, 2000);
+      } catch {
+        copyStatus.textContent = 'Copy failed';
+        copyStatus.classList.add('visible');
+      }
+    });
+  </script>
+</BaseLayout>
