@@ -427,11 +427,43 @@ h3 {
   padding-top: 28px;
 }
 
+.article-feature-image {
+  display: block;
+  width: 100%;
+  margin: 0 0 32px;
+  border-radius: 8px;
+  box-shadow: 0 18px 48px rgba(54, 69, 79, 0.1);
+}
+
 .article-body p {
   max-width: 760px;
   margin-bottom: 1.15rem;
   color: rgba(54, 69, 79, 0.84);
   font-size: clamp(1.04rem, 2vw, 1.16rem);
+}
+
+.further-reading {
+  max-width: 760px;
+  margin-top: 44px;
+  border-top: 1px solid var(--color-soft-gray);
+  padding-top: 28px;
+}
+
+.further-reading h2 {
+  margin-bottom: 14px;
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+
+.further-reading ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.further-reading li {
+  color: rgba(54, 69, 79, 0.84);
+  font-size: clamp(1.02rem, 2vw, 1.12rem);
 }
 
 .framework-panel {
