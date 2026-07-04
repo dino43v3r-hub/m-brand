@@ -33,19 +33,23 @@ const furtherReading = [
       <h1>{pageTitle}</h1>
       <div class="coffee-article-meta-row">
         <ul class="coffee-article-meta" aria-label="Article details">
+          <li>
+            <span aria-hidden="true">{articleMeta[0].icon}</span>
+            <span>{articleMeta[0].value}</span>
+          </li>
+          <li class="copy-link-meta-item">
+            <span aria-hidden="true">🔗</span>
+            <button class="copy-link-button" type="button" data-copy-link>Share Conversation</button>
+            <span class="copy-link-status" data-copy-link-status aria-live="polite"></span>
+          </li>
           {
-            articleMeta.map((item) => (
+            articleMeta.slice(1).map((item) => (
               <li>
                 <span aria-hidden="true">{item.icon}</span>
                 <span>{item.value}</span>
               </li>
             ))
           }
-          <li class="copy-link-meta-item">
-            <span aria-hidden="true">🔗</span>
-            <button class="copy-link-button" type="button" data-copy-link>Copy Link</button>
-            <span class="copy-link-status" data-copy-link-status aria-live="polite"></span>
-          </li>
         </ul>
       </div>
     </header>
@@ -165,7 +169,7 @@ const furtherReading = [
 
       try {
         await navigator.clipboard.writeText(window.location.href);
-        copyStatus.textContent = '✓ Link copied!';
+        copyStatus.textContent = '✓ Conversation link copied!';
         copyStatus.classList.add('visible');
         window.clearTimeout(copyStatusTimeout);
         copyStatusTimeout = window.setTimeout(() => {

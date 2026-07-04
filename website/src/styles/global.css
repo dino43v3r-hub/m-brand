@@ -496,6 +496,7 @@ h3 {
   font-size: 0.86rem;
   opacity: 0;
   transition: opacity 180ms ease;
+  white-space: nowrap;
 }
 
 .copy-link-status.visible {
