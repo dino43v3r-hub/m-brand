@@ -2,10 +2,14 @@
 import Card from '../components/Card.astro';
 import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
+import { latestArticle } from '../data/articles';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const pageDescription =
   'ConnectAloud is a thoughtful publication exploring artificial intelligence, technology, leadership, theology, and lifelong learning with curiosity, humility, and intellectual honesty.';
+const base = import.meta.env.BASE_URL;
+const basePath = base.endsWith('/') ? base.slice(0, -1) : base;
+const withBase = (path: string) => `${basePath}${path}`;
 ---
 
 <BaseLayout title="ConnectAloud" description={pageDescription}>
@@ -37,13 +41,21 @@ const pageDescription =
     </div>
   </Section>
 
-  <Section id="connectaloud" title="Articles">
-    <div class="framework-panel">
-      <p class="eyebrow">Prepared for future conversations</p>
-      <h3>ConnectAloud holds articles, reflections, and conversations as they are ready.</h3>
+  <Section id="connectaloud" title="Latest Conversation">
+    <div class="framework-panel publication-feature">
+      <p class="eyebrow">{latestArticle.collection}</p>
+      <div class="article-card-meta">
+        <span>{latestArticle.displayDate}</span>
+        <span>{latestArticle.readingTime}</span>
+      </div>
+      <h3>{latestArticle.title}</h3>
       <p>
-        This space is reserved for thoughtful dialogue that helps people approach AI, technology, leadership, theology, and learning with clarity.
+        A Saturday Morning Coffee with Dino conversation that began with AI ethics and opened into memory, identity, patterns, and what it means to be human.
       </p>
+      <div class="publication-links">
+        <a href={withBase(latestArticle.href)}>Read the conversation</a>
+        <a href={withBase('/coffee-with-dino/')}>Explore Coffee with Dino</a>
+      </div>
     </div>
   </Section>
 

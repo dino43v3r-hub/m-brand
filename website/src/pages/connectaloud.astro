@@ -1,95 +1,52 @@
 ---
-import Card from '../components/Card.astro';
 import DinoCompanion from '../components/DinoCompanion.astro';
 import Section from '../components/Section.astro';
-import { getCollection } from 'astro:content';
-import { getReadingTime } from '../lib/articles';
+import { articles } from '../data/articles';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const pageDescription =
-  'Articles from ConnectAloud offer clear, reflective exploration of technology, leadership, learning, and responsible innovation.';
-
-const articles = (await getCollection('connectaloud')).sort((a, b) => {
-  if (a.data.featured !== b.data.featured) {
-    return a.data.featured ? -1 : 1;
-  }
-
-  return b.data.date.valueOf() - a.data.date.valueOf();
-});
+  'The ConnectAloud archive gathers thoughtful conversations about AI, technology, leadership, faith, and what it means to be human.';
 const base = import.meta.env.BASE_URL;
 const basePath = base.endsWith('/') ? base.slice(0, -1) : base;
 const withBase = (path: string) => `${basePath}${path}`;
 
-const formatDate = (date: Date) =>
-  date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    timeZone: 'UTC',
-  });
-
-const getArticleSlug = (id: string) => id.replace(/\.md$/, '');
+const coffeeArticles = articles.filter(
+  (article) => article.collection === 'Saturday Morning Coffee with Dino',
+);
 ---
 
-<BaseLayout title="Articles | ConnectAloud" description={pageDescription}>
+<BaseLayout title="ConnectAloud Articles | ConnectAloud" description={pageDescription}>
   <section class="page-hero with-companion" aria-labelledby="page-title">
-    <p class="eyebrow">Articles</p>
-    <h1 id="page-title">Writing that makes room for thoughtfulness.</h1>
+    <p class="eyebrow">Archive</p>
+    <h1 id="page-title">ConnectAloud Articles</h1>
     <p class="lead">
-      ConnectAloud publishes reflections and conversations that help complex ideas become easier to approach.
+      A growing archive of thoughtful conversations for readers who want to approach complex questions with curiosity, care, and room to keep thinking.
     </p>
     <DinoCompanion />
   </section>
 
-  <Section id="purpose" title="Purpose">
-    <div class="framework-panel">
-      <p class="eyebrow">Prepared for future conversations</p>
-      <h3>A home for meaningful dialogue as the work develops.</h3>
-      <p>
-        ConnectAloud content should invite careful listening, clear thinking, and respectful conversation across AI, technology, leadership, theology, and learning.
-      </p>
-    </div>
-  </Section>
-
-  <Section id="articles" title="Latest Articles">
+  <Section id="coffee-with-dino" title="Saturday Morning Coffee with Dino">
+    <p class="section-intro">
+      Occasional conversations about AI, leadership, technology, faith, and what it means to be human.
+    </p>
     <div class="article-grid">
       {
-        articles.map((article) => {
-          const readingTime = getReadingTime(article.body);
-
-          return (
-          <a class="article-card" href={withBase(`/connectaloud/${getArticleSlug(article.id)}`)}>
-            {article.data.featured && <span class="featured-label">Featured</span>}
+        coffeeArticles.map((article) => (
+          <a class="article-card" href={withBase(article.href)}>
             <div class="article-card-meta">
-              <span>{formatDate(article.data.date)}</span>
-              <span>{article.data.category}</span>
-              <span>{readingTime}</span>
+              <span>{article.displayDate}</span>
+              <span>{article.readingTime}</span>
             </div>
-            <h3>{article.data.title}</h3>
-            <p>{article.data.description}</p>
+            <h3>{article.title}</h3>
+            <p>{article.description}</p>
             <ul class="tag-list" aria-label="Article tags">
-              {article.data.tags.map((tag) => (
+              {article.tags.map((tag) => (
                 <li>{tag}</li>
               ))}
             </ul>
           </a>
-          );
-        })
+        ))
       }
-    </div>
-  </Section>
-
-  <Section id="formats" title="Possible Formats">
-    <div class="focus-grid">
-      <Card title="Reflective episodes">
-        <p>Short-form explorations of a question, idea, or discovery worth thinking through aloud.</p>
-      </Card>
-      <Card title="Interviews">
-        <p>Conversations with people who bring thoughtful experience to technology, ethics, leadership, or faith.</p>
-      </Card>
-      <Card title="Learning notes">
-        <p>Audio or video reflections that document what is being learned, tested, or reconsidered.</p>
-      </Card>
     </div>
   </Section>
 </BaseLayout>

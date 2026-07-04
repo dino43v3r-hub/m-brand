@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Section from '../../components/Section.astro';
+import { articles } from '../../data/articles';
 
 const pageTitle = 'Saturday Morning Coffee with Dino';
 const description =
@@ -9,16 +10,7 @@ const base = import.meta.env.BASE_URL;
 const basePath = base.endsWith('/') ? base.slice(0, -1) : base;
 const withBase = (path: string) => `${basePath}${path}`;
 
-const conversations = [
-  {
-    title: 'Following One Question',
-    published: 'July 4, 2026',
-    readingTime: '7 min read',
-    description:
-      'A conversation that began with AI ethics and unexpectedly became an exploration of memory, identity, patterns, and what it means to be human.',
-    href: withBase('/coffee-with-dino/following-one-question/'),
-  },
-];
+const conversations = articles.filter((article) => article.collection === pageTitle);
 ---
 
 <BaseLayout title={`${pageTitle} | ConnectAloud`} description={description}>
@@ -44,9 +36,9 @@ const conversations = [
     <div class="coffee-conversation-grid">
       {
         conversations.map((conversation) => (
-          <a class="article-card coffee-conversation-card" href={conversation.href}>
+          <a class="article-card coffee-conversation-card" href={withBase(conversation.href)}>
             <div class="article-card-meta">
-              <span>{conversation.published} · {conversation.readingTime}</span>
+              <span>{conversation.displayDate} · {conversation.readingTime}</span>
             </div>
             <h3>{conversation.title}</h3>
             <p>{conversation.description}</p>

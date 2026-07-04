@@ -731,6 +731,35 @@ h3 {
   color: rgba(54, 69, 79, 0.78);
 }
 
+.publication-feature {
+  display: grid;
+  gap: 12px;
+}
+
+.publication-feature p {
+  max-width: 720px;
+}
+
+.publication-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin-top: 2px;
+}
+
+.publication-links a {
+  color: rgba(54, 69, 79, 0.72);
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.publication-links a:hover,
+.publication-links a:focus-visible {
+  color: var(--color-charcoal);
+  text-decoration: underline;
+  text-underline-offset: 0.24em;
+}
+
 .statement {
   border-left: 4px solid var(--color-warm-wood);
   padding-left: 18px;
