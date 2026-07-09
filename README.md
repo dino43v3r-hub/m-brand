@@ -29,3 +29,11 @@ Reserved for the official Astro website for the M Brand. Astro has not been init
 ## Canonical Documents
 
 Canonical brand documents are located in `docs/`. These files should be treated as the authoritative reference for brand decisions unless formally revised.
+
+## License
+
+This repository is currently released under **All Rights Reserved**.
+
+The source code is publicly visible for transparency and collaboration discussions only.
+
+No permission is granted to copy, modify, redistribute, or use this software without written permission from the copyright holder.
