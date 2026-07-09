@@ -1,0 +1,88 @@
+---
+import ConnectAloudArticleLayout from '../../layouts/ConnectAloudArticleLayout.astro';
+
+const pageTitle = 'Before We Speak';
+const description =
+  'A Coffee with Dino reflection on how AI may be changing the quiet preparation that happens before human communication begins.';
+const base = import.meta.env.BASE_URL;
+const basePath = base.endsWith('/') ? base.slice(0, -1) : base;
+const coffeeImageSrc = `${basePath}/images/dino/before-we-speak-cover.png`;
+const coffeeHomePath = `${basePath}/coffee-with-dino/`;
+
+const articleMeta = [
+  { icon: '📅', value: 'July 9, 2026' },
+  { icon: '☕', value: '5 minute read' },
+  { icon: '🏷', value: 'AI • Communication • Leadership • Workplace Relationships' },
+];
+
+const welcomeParagraphs = [
+  "Coffee with Dino is an occasional conversation where curiosity comes before certainty. We don't begin with answers—we begin with a question and follow where it leads.",
+  'Pull up a chair, pour yourself a cup of coffee, and think alongside us.',
+];
+---
+
+<ConnectAloudArticleLayout
+  title={pageTitle}
+  description={description}
+  canonicalPath="/coffee-with-dino/before-we-speak/"
+  ogImage="/images/dino/before-we-speak-cover.png"
+  publishedTime="2026-07-09"
+  author="M"
+  keywords="AI communication, workplace communication, leadership, AI preparation, Coffee with Dino"
+  eyebrow="☕ Coffee with Dino"
+  metaItems={articleMeta}
+  heroImageSrc={coffeeImageSrc}
+  heroImageAlt="Dino with coffee before a thoughtful workplace conversation."
+  welcomeParagraphs={welcomeParagraphs}
+  afterword={{
+    prompt: 'Enjoyed this conversation?',
+    href: coffeeHomePath,
+    label: 'Explore more Coffee with Dino conversations.',
+  }}
+  bottomNav={{
+    backHref: coffeeHomePath,
+    backLabel: 'Coffee with Dino',
+    nextLabel: 'Next Conversation',
+  }}
+>
+  <p>Communication has been one of the biggest workplace challenges for as long as I can remember.</p>
+  <p>No matter where I've worked, it always seems to find its way back into the conversation.</p>
+  <p>
+    Organizations invest in workshops, coaching, books, and training. Managers talk about it. Employees talk about it. No matter the industry, communication almost always seems to find its way back onto the list of things we need to improve.
+  </p>
+  <p>Then last week, I found myself looking at it a little differently.</p>
+  <p>
+    I was preparing for an important meeting at work. There were several thoughts I wanted to share, and I knew from experience that if I wasn't careful, I'd probably jump from one idea to another and leave the meeting realizing I hadn't communicated what I really meant.
+  </p>
+  <p>
+    This time, instead of simply organizing my thoughts in my head, I opened AI and started writing. Not because I wanted AI to tell me what to think—I already knew what I believed. What I needed was a place to slow down, work through my ideas, and organize them until they reflected what I was actually trying to communicate.
+  </p>
+  <p>
+    By the time the meeting began, I had rewritten my thoughts several times. I asked if I could simply read what I had written before we started discussing it. I wanted to make sure the conversation stayed focused on the ideas I had intentionally worked through instead of the other connections my mind tends to make while I'm speaking. Preparing beforehand helped keep the discussion centered on what I actually wanted to communicate.
+  </p>
+  <p>
+    Walking away from that meeting, I kept replaying the experience in my head. AI hadn't communicated for me. It hadn't built the relationship or participated in the discussion. I was still responsible for every word I chose, every idea I shared, and every relationship I hoped to strengthen. What had changed wasn't the conversation itself. It was everything that happened before the conversation ever began.
+  </p>
+  <p>
+    That observation stayed with me because so much of the conversation around AI focuses on productivity, efficiency, and automation. Those are important discussions, but I can't help wondering if something quieter is happening too.
+  </p>
+  <p>What if AI is changing what happens before we communicate?</p>
+  <p>
+    Today, a manager might spend time with AI organizing feedback before meeting with an employee. That same employee may be using AI to organize their own thoughts before walking into the room. Neither person has handed the conversation over to AI. They're still responsible for what they say and how they listen. But both may arrive having spent time reflecting, challenging assumptions, and organizing their thinking before the conversation even begins.
+  </p>
+  <p>The relationship is still between two people.</p>
+  <p>But AI has quietly become part of how many of us prepare for those relationships.</p>
+  <p>
+    The interesting part is that we haven't all adapted in the same way. Some people use AI to challenge their thinking. Others use it to organize ideas or improve their communication. Some don't use it at all, while others simply accept the first response they receive. From the outside they all appear to be "using AI," but in reality they're using it very differently.
+  </p>
+  <p>Maybe that's why communication still feels as challenging as ever.</p>
+  <p>
+    AI has made it easier to generate ideas, organize information, and prepare for conversations. But communication has never been just about exchanging information. It's about people building understanding and trust together.
+  </p>
+  <p>Perhaps that's why this feels like such a significant shift.</p>
+  <p>
+    For the first time, two people can walk into the same meeting after both spending time preparing with AI. The relationship is still human. The conversation is still human. But the path that brought each person to that conversation has quietly changed.
+  </p>
+  <p>Maybe the first question isn't whether AI is changing communication.</p>
+  <p>Maybe the conversation begins before either of us says the first word.</p>
+</ConnectAloudArticleLayout>

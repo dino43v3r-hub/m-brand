@@ -12,6 +12,18 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    title: 'Before We Speak',
+    collection: 'Saturday Morning Coffee with Dino',
+    date: '2026-07-09',
+    displayDate: 'July 9, 2026',
+    readingTime: '5 min read',
+    tags: ['AI', 'Communication', 'Leadership', 'Workplace Relationships'],
+    description:
+      'A reflection on how AI may be changing the quiet preparation that happens before human communication begins.',
+    href: '/coffee-with-dino/before-we-speak/',
+    image: '/images/dino/before-we-speak-cover.png',
+  },
+  {
     title: 'Following One Question',
     collection: 'Saturday Morning Coffee with Dino',
     date: '2026-07-04',
