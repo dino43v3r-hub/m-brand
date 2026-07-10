@@ -2,12 +2,11 @@
 import Button from './Button.astro';
 
 export interface Props {
-  eyebrow: string;
   title: string;
+  brandName?: string;
   lead: string;
   image: ImageMetadata | string;
   imageAlt: string;
-  caption: string;
   primaryAction: {
     href: string;
     label: string;
@@ -19,12 +18,11 @@ export interface Props {
 }
 
 const {
-  eyebrow,
   title,
+  brandName,
   lead,
   image,
   imageAlt,
-  caption,
   primaryAction,
   secondaryAction,
 } = Astro.props;
@@ -53,8 +51,8 @@ const imageHeight = typeof image === 'string' ? undefined : image.height;
 
 <section class="hero" aria-labelledby="page-title">
   <div class="hero-copy">
-    <p class="eyebrow">{eyebrow}</p>
     <h1 id="page-title">{title}</h1>
+    {brandName && <p class="hero-brand-name">{brandName}</p>}
     <p class="lead">{lead}</p>
     <div class="hero-actions" aria-label="Page sections">
       <Button href={primaryAction.href}>{primaryAction.label}</Button>
@@ -62,7 +60,7 @@ const imageHeight = typeof image === 'string' ? undefined : image.height;
     </div>
   </div>
 
-  <aside class="hero-card" aria-label="Dino, the ConnectAloud companion">
+  <div class="hero-card">
     <img
       src={imageSrc}
       width={imageWidth}
@@ -71,6 +69,5 @@ const imageHeight = typeof image === 'string' ? undefined : image.height;
       loading="eager"
       decoding="async"
     />
-    <p class="caption">{caption}</p>
-  </aside>
+  </div>
 </section>

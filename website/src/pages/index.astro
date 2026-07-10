@@ -21,37 +21,20 @@ const withBase = (path: string) => `${basePath}${path}`;
   author="M"
   keywords="AI, technology, leadership, theology, responsible AI, ConnectAloud"
 >
+  <div class="home-page">
   <Hero
-    eyebrow="Curiosity. Clarity. Responsible innovation."
-    title="ConnectAloud is a publication for thoughtful exploration at the intersection of AI, technology, leadership, and theology."
-    lead="ConnectAloud exists to encourage better questions, clearer reasoning, and trustworthy conversations about how technology can serve people with humility."
+    title="Every meaningful conversation begins with a thoughtful question."
+    brandName="ConnectAloud"
+    lead="ConnectAloud explores artificial intelligence, technology, leadership, and theology through curiosity, intellectual honesty, and a commitment to lifelong learning."
     image="/images/dino/thinking-dino-v1.0.png"
     imageAlt="Dino, the ConnectAloud companion, sitting thoughtfully at a laptop."
-    caption="Dino supports the conversation as a visual companion for curiosity, humility, and lifelong learning."
-    primaryAction={{ href: '/about', label: 'Explore the site' }}
-    secondaryAction={{ href: '/resources', label: 'View resources' }}
+    primaryAction={{ href: '/connectaloud', label: 'Start Reading' }}
+    secondaryAction={{ href: '/about', label: 'About ConnectAloud' }}
   />
-
-  <Section id="find-here" title="What You'll Find Here">
-    <p class="section-intro">
-      ConnectAloud is a home for careful exploration rather than quick certainty. It brings together questions about responsible AI, technology leadership, theology, ethics, and lifelong learning.
-    </p>
-    <div class="focus-grid">
-      <Card title="Thoughtful AI">
-        <p>Clear conversations about artificial intelligence, trust, transparency, governance, and technology that strengthens human reasoning.</p>
-      </Card>
-      <Card title="Leadership and Learning">
-        <p>Reflections on clear thinking, intellectual honesty, decision making, and the ongoing work of learning well.</p>
-      </Card>
-      <Card title="Theology and Ethics">
-        <p>Careful attention to truth, humility, human responsibility, and the deeper questions technology raises.</p>
-      </Card>
-    </div>
-  </Section>
 
   <Section id="connectaloud" title="Latest Conversation">
     <div class="framework-panel publication-feature">
-      <p class="eyebrow">{latestArticle.collection}</p>
+      <p class="conversation-badge">{latestArticle.collection}</p>
       <div class="article-card-meta">
         <span>{latestArticle.displayDate}</span>
         <span>{latestArticle.readingTime}</span>
@@ -67,23 +50,27 @@ const withBase = (path: string) => `${basePath}${path}`;
     </div>
   </Section>
 
-  <Section id="projects" title="Featured Projects">
-    <div class="framework-panel">
-      <p class="eyebrow">Prepared for future projects</p>
-      <h3>Project work will be added here when there is something real to share.</h3>
-      <p>
-        Future projects should reflect the ConnectAloud mission by helping people think more clearly, build trust, and approach technology with responsible curiosity.
-      </p>
+  <Section id="find-here" title="Why ConnectAloud Exists">
+    <p class="section-intro">
+      ConnectAloud exists to create space for better questions, careful reasoning, and conversations that continue beyond a single answer. It brings together artificial intelligence, technology, leadership, theology, ethics, and lifelong learning without pretending that complex ideas are simple.
+    </p>
+    <div class="focus-grid">
+      <Card title="Thoughtful AI">
+        <p>Clear conversations about artificial intelligence, trust, transparency, governance, and technology that strengthens human reasoning.</p>
+      </Card>
+      <Card title="Leadership and Learning">
+        <p>Reflections on clear thinking, intellectual honesty, decision making, and the ongoing work of learning well.</p>
+      </Card>
+      <Card title="Theology and Ethics">
+        <p>Careful attention to truth, humility, human responsibility, and the deeper questions technology raises.</p>
+      </Card>
     </div>
   </Section>
 
-  <Section id="principles" title="Guiding Principles" variant="statement">
-    <p>
+  <Section id="principles" title="What Guides Our Conversations">
+    <p class="principles-intro">
       To thoughtfully explore how artificial intelligence can become more trustworthy, transparent, and useful while strengthening human reasoning, encouraging intellectual honesty, and serving people through responsible innovation.
     </p>
-  </Section>
-
-  <Section id="principle-cards" title="How the Work Is Guided">
     <div class="principles-grid">
       <Card title="Curiosity before certainty">
         <p>Good questions create room for better understanding, especially when the answers are still developing.</p>
@@ -96,4 +83,5 @@ const withBase = (path: string) => `${basePath}${path}`;
       </Card>
     </div>
   </Section>
+  </div>
 </BaseLayout>
