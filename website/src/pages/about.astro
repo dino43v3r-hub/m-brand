@@ -1,4 +1,5 @@
 ---
+import Button from '../components/Button.astro';
 import Card from '../components/Card.astro';
 import DinoCompanion from '../components/DinoCompanion.astro';
 import Section from '../components/Section.astro';
@@ -6,97 +7,115 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const pageDescription =
   'Learn why ConnectAloud exists as a thoughtful, conversational publication exploring AI, technology, leadership, theology, and lifelong learning.';
+const base = import.meta.env.BASE_URL;
+const normalizedBase = base.endsWith('/') ? base : `${base}/`;
+const heroImage = `${normalizedBase}images/dino/thinking-dino-v1.0.png`;
 ---
 
 <BaseLayout title="About | ConnectAloud" description={pageDescription}>
-  <section class="page-hero with-companion" aria-labelledby="page-title">
-    <p class="eyebrow">About</p>
-    <h1 id="page-title">About ConnectAloud</h1>
-    <p class="lead">
-      I've always believed that some of the best conversations don't begin with answers. They begin with someone wondering out loud. ConnectAloud is simply a place where those conversations can continue.
-    </p>
-    <p class="section-intro">
-      It exists to encourage thoughtful conversations about artificial intelligence, technology, leadership, theology, and lifelong learning without rushing people toward easy certainty.
-    </p>
-    <DinoCompanion />
-  </section>
+  <div class="about-page">
+    <section class="about-hero" aria-labelledby="page-title">
+      <div class="about-hero-copy">
+        <p class="eyebrow">About</p>
+        <h1 id="page-title">About ConnectAloud</h1>
+        <p class="about-hero-support">Where thoughtful conversations begin.</p>
+        <div class="about-hero-body">
+          <p>Technology is changing how we learn, work, communicate, and lead.</p>
+          <p>ConnectAloud exists because those changes deserve careful thinking—not just quick opinions.</p>
+        </div>
+      </div>
+      <div class="about-hero-art">
+        <img
+          src={heroImage}
+          alt="Dino, the ConnectAloud companion, sitting thoughtfully at a laptop."
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+    </section>
 
-  <Section id="why-connectaloud-exists" title="Why ConnectAloud Exists">
-    <div class="framework-panel">
-      <p class="eyebrow">Thoughtful conversations matter</p>
-      <h3>Technology is changing how people learn, work, communicate, and make decisions.</h3>
-      <p>
-        I keep coming back to the sense that this kind of change deserves more than quick reactions or confident predictions.
-      </p>
-      <p>
-        The goal is not simply to provide answers. It is to make room for better questions, clearer reasoning, and intellectual honesty as we try to understand what technology is becoming and how it should serve human life.
-      </p>
-    </div>
-  </Section>
+    <Section id="why-connectaloud-exists" title="Why ConnectAloud Exists">
+      <div class="about-editorial-copy">
+        <p>Technology is changing how people learn, work, communicate, and make decisions.</p>
+        <p>ConnectAloud was created because those changes deserve thoughtful conversation—not just quick reactions.</p>
+        <p>This is not a place to tell people what to think.</p>
+        <p class="editorial-emphasis">It is a place to think together.</p>
+      </div>
+    </Section>
 
-  <Section id="what-youll-find-here" title="What You'll Find Here">
-    <p class="section-intro">
-      ConnectAloud brings several conversations into the same room because, in real life, they are already connected.
-    </p>
-    <div class="focus-grid">
-      <Card title="Artificial Intelligence">
-        <p>Careful exploration of AI, responsible AI, trust, transparency, and the ways these systems are shaping human reasoning.</p>
-      </Card>
-      <Card title="Technology and Leadership">
-        <p>Reflections on information technology, decision making, organizational responsibility, and the quiet work of leading with clarity.</p>
-      </Card>
-      <Card title="Theology and Ethics">
-        <p>Questions about truth, humility, responsibility, wisdom, and what it means to use powerful tools well.</p>
-      </Card>
-      <Card title="Research and Learning">
-        <p>Notes, resources, and reflections that treat learning as a lifelong practice, not a finished position.</p>
-      </Card>
-    </div>
-  </Section>
+    <Section id="what-youll-find-here" title="What You'll Find Here">
+      <div class="about-topic-grid">
+        <Card title="Artificial Intelligence">
+          <p>Responsible AI, trust, transparency, governance, and the ways technology can strengthen human reasoning.</p>
+        </Card>
+        <Card title="Technology and Leadership">
+          <p>Information technology, leadership, decision making, organizational responsibility, and the practical work of leading with clarity.</p>
+        </Card>
+        <Card title="Theology and Ethics">
+          <p>Questions about truth, humility, human responsibility, wisdom, and what technology asks us to consider about people.</p>
+        </Card>
+        <Card title="Coffee with Dino">
+          <p>Thoughtful reflections, ongoing questions, and conversations that continue beyond a single answer.</p>
+        </Card>
+      </div>
+    </Section>
 
-  <Section id="the-philosophy" title="The Philosophy">
-    <div class="statement">
-      <p>
-        ConnectAloud values curiosity over certainty, transparency over performance, and careful reasoning over quick answers.
-      </p>
-    </div>
-    <p class="section-intro">
-      That sounds simple, but it shapes the whole posture of the publication. Important ideas deserve patience. Trust is built through honesty. Learning is never complete.
-    </p>
-    <div class="principles-grid">
-      <Card title="Intellectual humility">
-        <p>Not every question can be answered quickly. Some ideas need room to breathe before they become useful.</p>
-      </Card>
-      <Card title="Transparent reasoning">
-        <p>Good conversations name uncertainty, show how conclusions are forming, and remain open to correction.</p>
-      </Card>
-      <Card title="Lifelong learning">
-        <p>ConnectAloud treats discovery as an ongoing practice, not a destination that can be reached once and kept.</p>
-      </Card>
-    </div>
-  </Section>
+    <Section id="what-guides-our-conversations" title="What Guides Our Conversations">
+      <div class="about-section-intro">
+        <p>ConnectAloud values curiosity over certainty, transparency over performance, and careful reasoning over quick answers.</p>
+        <p>Trust grows through honest limits, thoughtful questions, and a willingness to keep learning.</p>
+      </div>
+      <div class="principles-grid">
+        <Card title="Curiosity Before Certainty">
+          <p>Better questions create room for deeper understanding, especially when the answers are still developing.</p>
+        </Card>
+        <Card title="Trust Through Transparency">
+          <p>Clear reasoning, honest limits, and openness about uncertainty are essential to meaningful conversation.</p>
+        </Card>
+        <Card title="Learning Never Ends">
+          <p>Understanding grows through reflection, experience, dialogue, and the willingness to revise what we think we know.</p>
+        </Card>
+      </div>
+    </Section>
 
-  <Section id="about-m" title="About M">
-    <div class="framework-panel">
-      <p class="eyebrow">A personal note</p>
-      <h3>M enjoys exploring ideas where AI, technology, leadership, and theology meet.</h3>
-      <p>
-        This is not meant to be a resume page. ConnectAloud grows out of curiosity, reflection, and a desire to think carefully about the questions technology keeps placing in front of us.
-      </p>
-      <p>
-        M is drawn to the kind of learning that happens through honest conversation: noticing patterns, asking better questions, testing assumptions, and staying open to what still needs to be understood.
-      </p>
-    </div>
-  </Section>
+    <Section id="why-dino" title="Why Dino?">
+      <div class="why-dino-layout">
+        <div class="why-dino-copy">
+          <p>People occasionally ask:</p>
+          <p class="dino-question">Why a dinosaur?</p>
+          <p>Because curiosity does not belong only to experts.</p>
+          <p>Sometimes the most honest place to begin is with:</p>
+          <p class="dino-quote">“I don’t know yet.”</p>
+          <p>Dino is not here because he has all the answers.</p>
+          <p>He is here to remind us that better conversations begin with better questions.</p>
+          <p>He is not the voice of ConnectAloud.</p>
+          <p>He is the companion who invites people into the conversation.</p>
+        </div>
+        <DinoCompanion class="why-dino-art" />
+      </div>
+    </Section>
 
-  <Section id="an-invitation" title="An Invitation">
-    <div class="statement">
-      <p>
-        If these questions matter to you too, you are invited to read, reflect, and keep wondering out loud.
-      </p>
-    </div>
-    <p class="section-intro">
-      You can explore the articles, follow future projects, use the resources as they develop, or visit the Connect page when there is a question worth thinking through together.
-    </p>
-  </Section>
+    <Section id="about-m" title="About M">
+      <div class="about-editorial-copy about-m-copy">
+        <p class="editorial-emphasis">Hi, I’m M.</p>
+        <p>I work in technology, but what interests me most is not technology by itself.</p>
+        <p>I am interested in how people learn, think, communicate, lead, and make decisions alongside it.</p>
+        <p>ConnectAloud is where I explore those questions out loud, document what I am learning, and invite others into the conversation.</p>
+      </div>
+    </Section>
+
+    <Section id="the-conversation-continues" title="The Conversation Continues">
+      <div class="closing-invitation">
+        <div>
+          <p>Whether you agree, disagree, or simply have another perspective, you are welcome here.</p>
+          <p>The best conversations rarely end with certainty.</p>
+          <p>They usually begin with a better question.</p>
+        </div>
+        <div class="about-actions">
+          <Button href="/connectaloud">Start Reading</Button>
+          <Button href="/connect" variant="secondary">Connect</Button>
+        </div>
+      </div>
+    </Section>
+  </div>
 </BaseLayout>
