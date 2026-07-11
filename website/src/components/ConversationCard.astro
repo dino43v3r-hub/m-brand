@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props { conversation: CollectionEntry<'conversations'>; }
+const { conversation } = Astro.props;
+const { data } = conversation;
+const base = import.meta.env.BASE_URL;
+const basePath = base.endsWith('/') ? base.slice(0, -1) : base;
+const localUrl = (url: string) => url.startsWith('/') ? `${basePath}${url}` : url;
+const friendlyDate = new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).format(data.date);
+const hasRelatedContent = data.relatedArticleUrl || data.relatedResearchNoteUrl;
+---
+<article class:list={['conversation-card', { featured: data.featured }] }>
+  {data.image && <img src={localUrl(data.image.src)} alt={data.image.alt} loading="lazy" />}
+  <div class="conversation-card-content">
+    <p class="conversation-date"><time datetime={data.date.toISOString()}>{friendlyDate}</time></p>
+    <h2>{data.title}</h2>
+    <p class="conversation-excerpt">{data.excerpt}</p>
+    <a class="conversation-link" href={data.linkedinUrl} target="_blank" rel="noopener noreferrer">Join the conversation on LinkedIn <span class="external-note">(opens in a new tab)</span></a>
+    <div class="conversation-related" aria-label="Related content">
+      {data.relatedArticleUrl && <p><span>Where this conversation led</span><small>☕ Coffee with Dino</small><a href={localUrl(data.relatedArticleUrl)}>{data.relatedArticleTitle}</a></p>}
+      {data.relatedResearchNoteUrl && <p><span>Related research note</span><a href={localUrl(data.relatedResearchNoteUrl)}>{data.relatedResearchNoteTitle}</a></p>}
+      {!hasRelatedContent && <p class="unfolding">This conversation is still unfolding.</p>}
+    </div>
+  </div>
+</article>

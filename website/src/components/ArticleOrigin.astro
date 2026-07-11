@@ -1,0 +1,12 @@
+---
+interface Props { title: string; linkedinUrl: string; excerpt?: string; }
+const { title, linkedinUrl, excerpt } = Astro.props;
+---
+<section class="article-origin" aria-labelledby="article-origin-title">
+  <p class="eyebrow">Original conversation</p>
+  <h2 id="article-origin-title">Where this article began</h2>
+  <p>Every article begins with a question.</p>
+  <p>This reflection grew from a public conversation shared earlier.</p>
+  <h3>{title}</h3>
+  <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">Read the original conversation on LinkedIn <span class="external-note">(opens in a new tab)</span></a>
+</section>

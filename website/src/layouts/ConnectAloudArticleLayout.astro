@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import ArticleOrigin from '../components/ArticleOrigin.astro';
 
 type ArticleMetaItem = {
   icon: string;
@@ -46,6 +47,7 @@ interface Props {
   furtherReadingNote?: string;
   bottomNav?: BottomNav;
   articleClass?: string;
+  originConversation?: { title: string; linkedinUrl: string; excerpt?: string };
 }
 
 const {
@@ -71,6 +73,7 @@ const {
   furtherReadingNote,
   bottomNav,
   articleClass = 'coffee-article-page',
+  originConversation,
 } = Astro.props;
 ---
 
@@ -141,6 +144,8 @@ const {
         </div>
       )
     }
+
+    {originConversation && <ArticleOrigin {...originConversation} />}
 
     {
       afterword && (

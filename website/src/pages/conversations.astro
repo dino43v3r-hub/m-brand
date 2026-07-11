@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ConversationCard from '../components/ConversationCard.astro';
+const conversations = (await getCollection('conversations', ({ data }) => data.status === 'published'))
+  .sort((a, b) => Number(b.data.featured) - Number(a.data.featured) || b.data.date.valueOf() - a.data.date.valueOf());
+---
+<BaseLayout title="Conversations | ConnectAloud" description="Follow the questions and public conversations that grow into ConnectAloud articles, reflections, and research notes." canonicalPath="/conversations/">
+  <section class="conversations-hero" aria-labelledby="conversations-title">
+    <h1 id="conversations-title">Conversations</h1>
+    <div class="conversations-intro">
+      <p><strong>Where thoughtful conversations begin.</strong></p>
+      <p>Many of the ideas explored on ConnectAloud begin with a simple question.</p>
+      <p>Sometimes those questions continue through thoughtful conversations that challenge assumptions, refine ideas, and inspire new ones.</p>
+      <p>This page follows those conversations as they grow into articles, research notes, and occasionally entirely new questions.</p>
+    </div>
+  </section>
+  <section class="conversation-process" aria-label="How ideas grow">
+    <p>Question</p><span aria-hidden="true">↓</span>
+    <p>Conversation</p><span aria-hidden="true">↓</span>
+    <p>Reflection</p><span aria-hidden="true">↓</span>
+    <p>Article</p>
+  </section>
+  <section class="conversations-archive" aria-label="Conversation archive">
+    {conversations.length > 0 ? <div class="conversation-list">{conversations.map((conversation) => <ConversationCard conversation={conversation} />)}</div> : <div class="conversations-empty"><h2>The next conversation hasn't begun yet.</h2><p>Every article begins with a question.</p><p>When the next public conversation begins, you'll find it here—along with the reflections, articles, and new questions it inspires.</p></div>}
+  </section>
+</BaseLayout>
