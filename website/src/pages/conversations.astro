@@ -22,6 +22,6 @@ const conversations = (await getCollection('conversations', ({ data }) => data.s
     <p>Article</p>
   </section>
   <section class="conversations-archive" aria-label="Conversation archive">
-    {conversations.length > 0 ? <div class="conversation-list">{conversations.map((conversation) => <ConversationCard conversation={conversation} />)}</div> : <div class="conversations-empty"><h2>The next conversation hasn't begun yet.</h2><p>Every article begins with a question.</p><p>When the next public conversation begins, you'll find it here—along with the reflections, articles, and new questions it inspires.</p></div>}
+    {conversations.length > 0 ? <div class="conversation-list">{conversations.map((conversation, index) => <ConversationCard conversation={conversation} number={conversations.length - index} />)}</div> : <div class="conversations-empty"><h2>The next conversation hasn't begun yet.</h2><p>Every article begins with a question.</p><p>When the next public conversation begins, you'll find it here—along with the reflections, articles, and new questions it inspires.</p></div>}
   </section>
 </BaseLayout>
